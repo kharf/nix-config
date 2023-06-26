@@ -39,7 +39,7 @@
     username = "kharf";
     homeDirectory = "/home/kharf";
     file = {
-      ".config/i3/config".source = ./config;
+      ".config/i3/config".source = ./i3/config;
       ".config/i3status-rust/config.toml".source = ./i3status-rust/config.toml;
     };
   };

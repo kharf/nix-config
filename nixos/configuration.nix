@@ -127,6 +127,11 @@
     packages = with pkgs; [];
   };
 
+  # Fonts
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "SourceCodePro" "DejaVuSansMono" ]; })
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
