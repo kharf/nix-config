@@ -126,6 +126,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
+  users.defaultUserShell = pkgs.zsh;
 
   # Fonts
   fonts.fonts = with pkgs; [
@@ -136,8 +137,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+     i3status-rust
+     # terminal
      alacritty
-     brave
+     starship
      helix
+     # browser
+     brave
+     # cloud cli
+     fluxcd
   ];
+
+  programs = {
+    zsh.enable = true;
+  };
 }

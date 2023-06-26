@@ -42,6 +42,8 @@
       ".config/i3/config".source = ./i3/config;
       ".config/i3status-rust/config.toml".source = ./i3status-rust/config.toml;
       ".alacritty.yml".source = ./alacritty/alacritty.yaml;
+      ".config/starship.toml".source = ./starship/starship.toml;
+      ".zshrc".source = ./zsh/zshrc;
     };
   };
 
@@ -59,10 +61,6 @@
       enable = true;
       userName = "kharf";
       userEmail = "kevinfritz210@gmail.com";
-    };
-
-    i3status-rust = {
-       enable = true;
     };
   };
 
