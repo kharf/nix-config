@@ -9,7 +9,6 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    ./i3.nix
   ];
 
   nixpkgs = {
@@ -34,12 +33,15 @@
     };
   };
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
-
   home = {
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = "23.05";
     username = "kharf";
     homeDirectory = "/home/kharf";
+    file = {
+      ".config/i3/config".source = ./config;
+      ".config/i3status-rust/config.toml".source = ./i3status-rust/config.toml;
+    };
   };
 
   # Add stuff for your user as you see fit:
@@ -47,11 +49,20 @@
   # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "kharf";
-    userEmail = "kevinfritz210@gmail.com";
+  programs = {
+    home-manager = {
+      enable = true;
+    };
+
+    git = {
+      enable = true;
+      userName = "kharf";
+      userEmail = "kevinfritz210@gmail.com";
+    };
+
+    i3status-rust = {
+       enable = true;
+    };
   };
 
   # Nicely reload system units when changing configs
