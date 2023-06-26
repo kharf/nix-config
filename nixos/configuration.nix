@@ -146,6 +146,7 @@
      brave
      # cloud cli
      fluxcd
+     k9s
   ];
 
   programs = {

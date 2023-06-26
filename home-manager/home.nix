@@ -46,6 +46,7 @@
       ".zshrc".source = ./zsh/zshrc;
       ".config/helix/config.toml".source = ./helix/config.toml;
       ".config/helix/themes/oxocarbon.toml".source = ./helix/themes/oxocarbon.toml;
+      ".config/k9s/skin.yml".source = ./k9s/skin.yaml;
     };
   };
 
