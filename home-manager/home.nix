@@ -44,6 +44,8 @@
       ".alacritty.yml".source = ./alacritty/alacritty.yaml;
       ".config/starship.toml".source = ./starship/starship.toml;
       ".zshrc".source = ./zsh/zshrc;
+      ".config/helix/config.toml".source = ./helix/config.toml;
+      ".config/helix/themes/oxocarbon.toml".source = ./helix/themes/oxocarbon.toml;
     };
   };
 
