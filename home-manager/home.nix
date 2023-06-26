@@ -41,6 +41,7 @@
     file = {
       ".config/i3/config".source = ./i3/config;
       ".config/i3status-rust/config.toml".source = ./i3status-rust/config.toml;
+      ".alacritty.yml".source = ./alacritty/alacritty.yaml;
     };
   };
 

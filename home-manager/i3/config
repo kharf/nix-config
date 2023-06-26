@@ -49,7 +49,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
-font pango:Noto Sans Regular 10
+font pango:SauceCodePro Nerd Font Mono Regular 10
 
 for_window [class="^.*"] border pixel 0
 #smart_borders on
@@ -336,19 +336,19 @@ bar {
 # rofi bindings fancy application menu
 bindsym $mod+i exec rofi -modi drun -show drun -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+                -show-icons -drun-icon-theme "Arc-X-D" -font "SauceCodePro Nerd Font Regular 10"
                 
 bindsym $mod+d exec rofi -modi drun -show drun -line-padding 4 \
                 -columns 2 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+                -show-icons -drun-icon-theme "Arc-X-D" -font "SauceCodePro Nerd Font Regular 10"
 
 bindsym $mod+o exec rofi -show window -line-padding 4 \
                 -lines 6 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+                -show-icons -drun-icon-theme "Arc-X-D" -font "SauceCodePro Nerd Font Regular 10"
 
 bindsym $mod+f10 exec rofi -show window -line-padding 4 \
                 -lines 6 -padding 50 -hide-scrollbar \
-                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"                
+                -show-icons -drun-icon-theme "Arc-X-D" -font "SauceCodePro Nerd Font Regular 10"                
                 
 
 # start scratchpad alacritty on start

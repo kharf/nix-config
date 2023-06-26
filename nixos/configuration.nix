@@ -130,6 +130,7 @@
   # Fonts
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "SourceCodePro" "DejaVuSansMono" ]; })
+    font-awesome
   ];
 
   # List packages installed in system profile. To search, run:
