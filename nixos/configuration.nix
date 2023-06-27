@@ -89,6 +89,9 @@
   # Configure console keymap
   console.keyMap = "de";
 
+   # Sound
+  sound.enable = true;
+
   # X
   services.xserver = {
     enable = true;

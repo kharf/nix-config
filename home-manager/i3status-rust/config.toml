@@ -50,20 +50,10 @@ interval = 1
 idle_bg = "#3dddb9"
 idle_fg = "#161616"
 
-
-[[block]]
-block = "load"
-format = " $icon 1min avg: $1m.eng(w:4) "
-interval = 1
-[block.theme_overrides]
-idle_bg = "#33b1ff"
-idle_fg = "#161616"
-
-
 [[block]]
 block = "sound"
 [block.theme_overrides]
-idle_bg = "#82cfff"
+idle_bg = "#33b1ff"
 idle_fg = "#161616"
 
 [[block]]
