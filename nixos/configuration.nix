@@ -149,6 +149,10 @@
      # cloud cli
      fluxcd
      k9s
+     # development
+     go
+     gopls
+     terraform-ls
   ];
 
   programs = {
