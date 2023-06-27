@@ -153,6 +153,8 @@
      go
      gopls
      terraform-ls
+     # key remap (executed in zshrc)
+     xorg.xmodmap
   ];
 
   programs = {
