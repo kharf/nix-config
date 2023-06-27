@@ -95,6 +95,8 @@
     # Keyboard layout
     layout = "de";
     xkbVariant = "";
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 30;
 
     displayManager = {
       lightdm.enable = true;
