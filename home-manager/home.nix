@@ -48,6 +48,7 @@
       ".config/helix/themes/oxocarbon.toml".source = ./helix/themes/oxocarbon.toml;
       ".config/k9s/skin.yml".source = ./k9s/skin.yaml;
       ".config/picom.conf".source = ./picom/picom.conf;
+      ".xprofile".source = ./x/xprofile;
     };
   };
 
