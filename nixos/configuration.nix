@@ -114,8 +114,10 @@
       enable = true;
       package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
-        dmenu
         i3lock
+        rofi
+        i3status-rust
+        picom
       ];
     };
   };
@@ -149,9 +151,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     # window manager
-     i3status-rust
-     picom
      # terminal
      alacritty
      starship
