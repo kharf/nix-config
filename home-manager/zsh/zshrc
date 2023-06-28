@@ -5,14 +5,10 @@ export KUBE_EDITOR=hx
 export GOPRIVATE=github.com/mediamarktsaturn
 export KIND_EXPERIMENTAL_PROVIDER=podman
 
-alias sudo='sudo '
-
 autoload -Uz compinit
 compinit
 # flux autocompletion
 command -v flux >/dev/null && . <(flux completion zsh)
-
-source $ZSH/oh-my-zsh.sh
 
 # Key mapping for qwertz
 xmodmap -e "keycode 34 = braceleft braceright" 2> /dev/null
