@@ -155,6 +155,7 @@
      alacritty
      starship
      helix
+     neofetch
      # browser
      brave
      # cloud cli
@@ -166,12 +167,18 @@
      terraform-ls
      # key remap (executed in zshrc)
      xorg.xmodmap
+     # gaming
+     bottles
   ];
 
   programs = {
     zsh = {
       enable = true;
       ohMyZsh.enable = true;
+    };
+
+    steam = {
+      enable = true;
     };
   };
 }
