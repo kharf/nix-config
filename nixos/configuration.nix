@@ -157,7 +157,7 @@
      helix
      neofetch
      # browser
-     brave
+     firefox
      # cloud cli
      fluxcd
      k9s
