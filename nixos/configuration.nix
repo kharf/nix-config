@@ -65,7 +65,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
-  networking.hostName = "nixos";
+  networking.hostName = "kharf";
   networking.nameservers = [ "8.8.8.8" "8.8.8.4" ];
 
   # Time zone.
@@ -171,6 +171,8 @@
      bottles
      # pictures
      feh
+     # password manager
+     _1password
   ];
 
   programs = {
