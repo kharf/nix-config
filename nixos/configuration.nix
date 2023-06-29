@@ -169,6 +169,8 @@
      xorg.xmodmap
      # gaming
      bottles
+     # pictures
+     feh
   ];
 
   programs = {
