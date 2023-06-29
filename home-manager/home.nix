@@ -40,6 +40,7 @@
     homeDirectory = "/home/kharf";
     file = {
       ".config/i3/config".source = ./i3/config;
+      ".config/i3/i3-lock-screen-scaled.png".source = ./i3/i3-lock-screen-scaled.png;
       ".config/i3status-rust/config.toml".source = ./i3status-rust/config.toml;
       ".alacritty.yml".source = ./alacritty/alacritty.yaml;
       ".config/starship.toml".source = ./starship/starship.toml;
