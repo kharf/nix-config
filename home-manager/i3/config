@@ -138,31 +138,15 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 assign [class="term"] $ws1
 for_window [class=term] focus
 for_window [class="scratchterm"] floating enable, resize set 1500 1000, move scratchpad
-assign [class="kitty"] $ws1
-for_window [class=kitty] focus
 assign [class="(?i)firefox"] $ws2
 for_window [class=(?i)firefox] focus
-assign [class="(?i)brave-browser" instance="brave-browser"] $ws2
-for_window [class=(?i)brave-browser instance="brave-browser"] focus
 assign [class="Thunar"] $ws3
 for_window [class=Thunar] focus
-assign [class="Thunderbird"] $ws4
-for_window [class=Thunderbird] focus
-assign [class="TelegramDesktop"] $ws5
-for_window [class=TelegramDesktop] focus
+assign [class="(?i)microsoft teams - preview"] $ws4
+for_window [class="(?i)microsoft teams - preview"] focus
 assign [class="Slack"] $ws7
 for_window [class=Slack] focus
-assign [class="discord"] $ws7
-for_window [class=discord] focus
-assign [class="Steam"] $ws8
-for_window [class=Steam] focus
 
-# teams
-assign [instance="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] $ws4
-for_window [instance="crx_cifhbcnohmdccbgoicgdjpfamggdegmo"] focus
-
-assign [class="jetbrains-idea"] $ws3
-for_window [class=jetbrains-idea] focus
 assign [class="1Password"] $ws9
 for_window [class=1Password] focus
 assign [class="Insomnia"] $ws6
