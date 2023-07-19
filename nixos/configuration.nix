@@ -190,8 +190,9 @@
      feh
      # password manager
      _1password
-     # sound
+     # media
      alsa-utils
+     vlc
      # chat
      teams
      # files and dirs
