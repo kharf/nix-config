@@ -53,9 +53,18 @@
   };
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -90,7 +99,13 @@
   console.keyMap = "de";
 
    # Sound
-  sound.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # X
   services.xserver = {
@@ -130,7 +145,7 @@
   users.users.kharf = {
     isNormalUser = true;
     description = "kharf";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [];
   };
   users.defaultUserShell = pkgs.zsh;
@@ -167,22 +182,20 @@
      terraform-ls
      # key remap (executed in zshrc)
      xorg.xmodmap
-     # gaming
-     bottles
      # pictures
      feh
      # password manager
      _1password
+     # sound
+     alsa-utils
+     # chat
+     teams
   ];
 
   programs = {
     zsh = {
       enable = true;
       ohMyZsh.enable = true;
-    };
-
-    steam = {
-      enable = true;
     };
   };
 }
