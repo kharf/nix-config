@@ -20,10 +20,13 @@ separator_fg = "auto"
 icons = "awesome6"
 
 [[block]]
-block = "service_status"
-service = "docker"
-active_format = " ^icon_docker "
-inactive_format = " no ^icon_docker "
+block = "docker"
+interval = 2
+socket_path = "/run/user/1000/podman/podman.sock"
+format = " $icon $running/$total images: $images "
+[block.theme_overrides]
+idle_bg = "#ee5396"
+idle_fg = "#dde1e6"
 
 [[block]]
 block = "disk_space"

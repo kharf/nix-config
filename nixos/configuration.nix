@@ -160,6 +160,7 @@
   virtualisation = {
     podman = {
       enable = true;
+      dockerCompat = true;
     };
   };
 
@@ -193,6 +194,8 @@
      alsa-utils
      # chat
      teams
+     # files and dirs
+     p7zip
   ];
 
   programs = {
