@@ -200,5 +200,6 @@
       enable = true;
       ohMyZsh.enable = true;
     };
+    dconf.enable = true;
   };
 }
