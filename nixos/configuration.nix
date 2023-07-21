@@ -183,7 +183,10 @@
      # development
      go
      gopls
+     golangci-lint
+     checkov
      terraform-ls
+     gnumake
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
@@ -205,5 +208,6 @@
       ohMyZsh.enable = true;
     };
     dconf.enable = true;
+    ssh.askPassword = "";
   };
 }

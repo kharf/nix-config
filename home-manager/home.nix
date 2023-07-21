@@ -69,6 +69,13 @@
       enable = true;
       userName = "kharf";
       userEmail = "kevinfritz210@gmail.com";
+      extraConfig = {
+        url = {
+          "ssh://git@github.com/mediamarktsaturn" = {
+            insteadOf = "https://github.com/mediamarktsaturn";
+         };
+        };
+      };
     };
   };
 
