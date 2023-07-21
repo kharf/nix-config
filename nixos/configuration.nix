@@ -180,6 +180,7 @@
      k9s
      fluxcd
      (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+     kind
      # development
      go
      gopls
@@ -187,6 +188,7 @@
      checkov
      terraform-ls
      gnumake
+     kubebuilder
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
