@@ -1,9 +1,4 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
-}: {
+{ pkgs, ... }: {
   gtk = {
     enable = true;
     font.name = " Sauce Code Pro Nerd Font";

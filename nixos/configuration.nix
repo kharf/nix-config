@@ -18,15 +18,12 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
+      (final: prev: {
+        unstable = import inputs.nixpkgs-unstable {
+          system = final.system;
+          config.allowUnfree = true;
+        };
+      })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -146,7 +143,6 @@
     isNormalUser = true;
     description = "kharf";
     extraGroups = [ "networkmanager" "wheel" "audio" ];
-    packages = with pkgs; [];
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -168,27 +164,28 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      # terminal
-     alacritty
-     starship
-     helix
-     neofetch
+     unstable.alacritty
+     unstable.starship
+     unstable.helix
+     unstable.neofetch
      # browser
      firefox
      # cloud cli
-     kubectl
-     kubectx
-     k9s
-     fluxcd
-     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
-     kind
+     unstable.kubectl
+     unstable.kubectx
+     unstable.k9s
+     unstable.fluxcd
+     (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
+     unstable.kind
      # development
-     go
-     gopls
-     golangci-lint
-     checkov
-     terraform-ls
-     gnumake
-     kubebuilder
+     unstable.go
+     unstable.gopls
+     unstable.golangci-lint
+     unstable.checkov
+     unstable.terraform-ls
+     unstable.gnumake
+     unstable.kubebuilder
+     unstable.nil
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
@@ -199,7 +196,7 @@
      alsa-utils
      vlc
      # chat
-     teams
+     unstable.teams
      # files and dirs
      p7zip
   ];
