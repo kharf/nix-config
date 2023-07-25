@@ -176,6 +176,7 @@
      unstable.k9s
      unstable.fluxcd
      (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
+     unstable.terraform
      unstable.kind
      # development
      unstable.go
@@ -190,6 +191,7 @@
      xorg.xmodmap
      # pictures
      feh
+     flameshot
      # password manager
      _1password
      # media
