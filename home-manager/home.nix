@@ -1,6 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ ... }: {
+{ pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     ./gtk.nix
@@ -24,6 +24,13 @@
     stateVersion = "23.05";
     username = "kharf";
     homeDirectory = "/home/kharf";
+    pointerCursor = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      size = 24;
+      gtk.enable = true;
+      x11.enable = true;
+    };
     file = {
       ".config/i3/config".source = ./i3/config;
       ".config/i3/i3-lock-screen-scaled.png".source = ./i3/i3-lock-screen-scaled.png;
