@@ -176,7 +176,7 @@
      unstable.k9s
      unstable.fluxcd
      (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
-     unstable.terraform
+     unstable.tfswitch
      unstable.kind
      # development
      unstable.go

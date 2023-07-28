@@ -6,6 +6,7 @@ export GOPRIVATE=github.com/mediamarktsaturn
 export KIND_EXPERIMENTAL_PROVIDER=podman
 export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 export TESTCONTAINERS_RYUK_DISABLED=true
+export PATH="$PATH:$HOME/.local/bin"
 
 autoload -Uz compinit
 compinit
