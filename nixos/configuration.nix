@@ -160,6 +160,9 @@
     };
   };
 
+  # Credentials
+  services.gnome.gnome-keyring.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -201,6 +204,11 @@
      unstable.teams
      # files and dirs
      p7zip
+     # privacy
+     protonvpn-cli
+     protonvpn-gui
+     # system
+     bottom
   ];
 
   programs = {
@@ -210,5 +218,6 @@
     };
     dconf.enable = true;
     ssh.askPassword = "";
+    nm-applet.enable = true;
   };
 }

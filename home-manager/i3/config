@@ -153,6 +153,8 @@ assign [class="Insomnia"] $ws6
 for_window [class=Insomnia] focus
 assign [class="ops"] $ws9
 for_window [class=ops] focus
+assign [class=".protonvpn-wrapped"] $ws9
+for_window [class=".protonvpn-wrapped"] focus
 
 # dex execute .desktop files:
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart
