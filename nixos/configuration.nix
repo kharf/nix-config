@@ -172,7 +172,7 @@
      unstable.helix
      unstable.neofetch
      # browser
-     firefox
+     unstable.firefox
      # cloud cli
      unstable.kubectl
      unstable.kubectx
