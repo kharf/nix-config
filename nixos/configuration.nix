@@ -190,6 +190,7 @@
      unstable.gnumake
      unstable.kubebuilder
      unstable.nil
+     unstable.sops
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
