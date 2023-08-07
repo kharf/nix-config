@@ -184,6 +184,8 @@
      # development
      unstable.go
      unstable.gopls
+     unstable.cue
+     unstable.cuelsp
      unstable.golangci-lint
      unstable.checkov
      unstable.terraform-ls
