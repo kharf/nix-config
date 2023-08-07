@@ -1,1 +1,1 @@
-![screenshot](https://github.com/kharf/nix-config/images/screenshot.png)
+![screenshot](images/screenshot.png)
