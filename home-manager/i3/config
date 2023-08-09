@@ -140,6 +140,8 @@ for_window [class=term] focus
 for_window [class="scratchterm"] floating enable, resize set 1500 1000, move scratchpad
 assign [class="(?i)firefox"] $ws2
 for_window [class=(?i)firefox] focus
+assign [class="(?i)brave"] $ws2
+for_window [class=(?i)brave] focus
 assign [class="Thunar"] $ws3
 for_window [class=Thunar] focus
 assign [class="(?i)microsoft teams - preview"] $ws4
@@ -268,7 +270,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # App shortcuts
-bindsym $mod+w exec "/run/current-system/sw/bin/firefox"
+bindsym $mod+w exec "/run/current-system/sw/bin/brave"
 bindsym $mod+n exec "/run/current-system/sw/bin/thunar"
 bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 

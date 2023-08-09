@@ -173,6 +173,7 @@
      unstable.neofetch
      # browser
      unstable.firefox
+     unstable.brave
      # cloud cli
      unstable.kubectl
      unstable.kubectx
