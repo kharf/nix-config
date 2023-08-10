@@ -194,6 +194,7 @@
      unstable.kubebuilder
      unstable.nil
      unstable.sops
+     unstable.httpie
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
