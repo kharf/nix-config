@@ -22,7 +22,7 @@ workspace_layout default
 
 
 # Set inner/outer gaps
-gaps inner 15 
+gaps inner 0
 gaps outer 0
 
 #do not show titlebar on windows: 
