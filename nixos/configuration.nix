@@ -172,7 +172,6 @@
      unstable.helix
      unstable.neofetch
      # browser
-     unstable.firefox
      unstable.brave
      # cloud cli
      unstable.kubectl
@@ -205,8 +204,6 @@
      # media
      alsa-utils
      vlc
-     # chat
-     unstable.teams
      # files and dirs
      p7zip
      # privacy

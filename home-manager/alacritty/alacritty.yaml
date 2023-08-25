@@ -1,6 +1,9 @@
 env:
   WINIT_X11_SCALE_FACTOR: "1.0"
 
+window:
+  option_as_alt: OnlyLeft
+
 font:
   normal:
     family: Sauce Code Pro Nerd Font
