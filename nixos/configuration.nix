@@ -171,6 +171,7 @@
      unstable.starship
      unstable.helix
      unstable.neofetch
+     xclip
      # browser
      unstable.brave
      # cloud cli
@@ -211,6 +212,8 @@
      protonvpn-gui
      # system
      bottom
+     # games
+     steam
   ];
 
   programs = {
