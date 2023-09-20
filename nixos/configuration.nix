@@ -205,11 +205,14 @@
      # media
      alsa-utils
      vlc
+     spotify
      # files and dirs
      p7zip
+     unstable.nnn
      # privacy
      protonvpn-cli
      protonvpn-gui
+     keepassxc
      # system
      bottom
      # games

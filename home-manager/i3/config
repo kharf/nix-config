@@ -138,21 +138,29 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 assign [class="term"] $ws1
 for_window [class=term] focus
 for_window [class="scratchterm"] floating enable, resize set 1500 1000, move scratchpad
+
 assign [class="(?i)firefox"] $ws2
 for_window [class=(?i)firefox] focus
 assign [class="(?i)brave"] $ws2
 for_window [class=(?i)brave] focus
+
 assign [class="Thunar"] $ws3
 for_window [class=Thunar] focus
+
 assign [class="(?i)microsoft teams - preview"] $ws4
 for_window [class="(?i)microsoft teams - preview"] focus
+
+assign [class="Insomnia"] $ws6
+for_window [class=Insomnia] focus
+
 assign [class="Slack"] $ws7
 for_window [class=Slack] focus
 
+assign [class="Spotify"] $ws8
+for_window [class=Spotify] focus
+
 assign [class="1Password"] $ws9
 for_window [class=1Password] focus
-assign [class="Insomnia"] $ws6
-for_window [class=Insomnia] focus
 assign [class="ops"] $ws9
 for_window [class=ops] focus
 assign [class=".protonvpn-wrapped"] $ws9
