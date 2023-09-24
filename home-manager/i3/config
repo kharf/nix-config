@@ -138,10 +138,9 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 assign [class="term"] $ws1
 for_window [class=term] focus
 for_window [class="scratchterm"] floating enable, resize set 1500 1000, move scratchpad
-
-assign [class="(?i)firefox"] $ws2
+assign [class="(?i)firefox"] $ws1
 for_window [class=(?i)firefox] focus
-assign [class="(?i)brave"] $ws2
+assign [class="(?i)brave"] $ws1
 for_window [class=(?i)brave] focus
 
 assign [class="Thunar"] $ws3

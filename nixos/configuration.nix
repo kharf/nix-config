@@ -200,8 +200,6 @@
      # pictures
      feh
      flameshot
-     # password manager
-     _1password
      # media
      alsa-utils
      vlc
@@ -213,6 +211,8 @@
      protonvpn-cli
      protonvpn-gui
      keepassxc
+     _1password
+     _1password-gui
      # system
      bottom
      # games
