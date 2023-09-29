@@ -134,15 +134,23 @@
     };
   };
 
-  # Vulkan
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware = {
+    # Vulkan
+    opengl = {
+      driSupport = true;  
+      driSupport32Bit = true;
+    };
+    # razer driver
+    openrazer = {
+      enable = true;
+    };
+  };
 
   # Provision user
   users.users.kharf = {
     isNormalUser = true;
     description = "kharf";
-    extraGroups = [ "networkmanager" "wheel" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "openrazer" ];
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -183,7 +191,7 @@
      unstable.tfswitch
      unstable.kind
      # development
-     unstable.go
+     unstable.go_1_21
      unstable.gopls
      unstable.cue
      unstable.cuelsp
@@ -213,10 +221,13 @@
      keepassxc
      _1password
      _1password-gui
+     age
      # system
      bottom
      # games
      steam
+     # peripherals
+     polychromatic
   ];
 
   programs = {
