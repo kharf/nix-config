@@ -193,6 +193,7 @@
      # development
      unstable.go_1_21
      unstable.gopls
+     unstable.delve
      unstable.cue
      unstable.cuelsp
      unstable.golangci-lint
