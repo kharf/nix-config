@@ -149,6 +149,10 @@ for_window [class=Thunar] focus
 
 assign [class="(?i)microsoft teams - preview"] $ws4
 for_window [class="(?i)microsoft teams - preview"] focus
+assign [class="(?i)RSI Launcher"] $ws4
+for_window [class="(?i)RSI Launcher"] focus
+assign [class="(?i)starcitizen.exe"] $ws4
+for_window [class="(?i)starcitizen.exe"] focus
 
 assign [class="Insomnia"] $ws6
 for_window [class=Insomnia] focus

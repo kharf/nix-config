@@ -4,13 +4,6 @@
 { inputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
@@ -240,9 +233,17 @@
      age
      # system
      bottom
+     killall
      # games
      steam
-     inputs.nix-gaming.packages.${pkgs.system}.star-citizen
+     (inputs.nix-gaming.packages.${pkgs.system}.star-citizen.override {
+       preCommands = ''
+         killall picom
+       '';   
+       postCommands = ''
+         picom -b
+       '';   
+     })
      # peripherals
      polychromatic
   ];
