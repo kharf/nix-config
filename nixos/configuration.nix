@@ -49,6 +49,9 @@
     };
   };
 
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
   # Bootloader.
   boot.loader = {
     efi = {
@@ -94,6 +97,18 @@
 
   # Configure console keymap
   console.keyMap = "de";
+
+  # Tweaks
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 16777216;
+    "fs.file-max" = 524288;
+  };
+
+  # Swap
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
 
    # Sound
   security.rtkit.enable = true;
@@ -227,6 +242,7 @@
      bottom
      # games
      steam
+     inputs.nix-gaming.packages.${pkgs.system}.star-citizen
      # peripherals
      polychromatic
   ];
