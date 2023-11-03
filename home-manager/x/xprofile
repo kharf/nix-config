@@ -1,13 +1,13 @@
 #!/bin/sh
 for prop in $(xinput | grep "Razer Razer Viper Ultimate Dongle" | grep 'pointer' | cut -d '=' -f 2 | cut -f 1)
 do
-  echo "disabling accel profile $prop" 
+  echo "disabling accel profile $prop"
   xinput --set-prop $prop 'libinput Accel Profile Enabled' 0, 1 || true
 done
 
 #!/bin/sh
 for prop in $(xinput | grep  "Razer Razer Naga Pro" | grep 'pointer' | cut -d '=' -f 2 | cut -f 1)
 do
-  echo "disableing accel profile $prop" 
+  echo "disabling accel profile $prop"
   xinput --set-prop $prop 'libinput Accel Profile Enabled' 0, 1 || true
 done
