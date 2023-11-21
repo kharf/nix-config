@@ -153,12 +153,11 @@ assign [class="(?i)RSI Launcher"] $ws4
 for_window [class="(?i)RSI Launcher"] focus
 assign [class="(?i)starcitizen.exe"] $ws4
 for_window [class="(?i)starcitizen.exe"] focus
+assign [class="steam_app_1466860"] $ws4
+for_window [class="steam_app_1466860"] focus
 
-assign [class="Insomnia"] $ws6
-for_window [class=Insomnia] focus
-
-assign [class="Slack"] $ws7
-for_window [class=Slack] focus
+assign [class="(?i)steam"] $ws5
+for_window [class="(?i)steam"] focus
 
 assign [class="Spotify"] $ws8
 for_window [class=Spotify] focus
@@ -332,3 +331,6 @@ bindsym $mod+o exec rofi -show window -line-padding 4 \
 
 # start scratchpad alacritty on start
 exec alacritty --class scratchterm,scratchterm
+
+# automounting
+exec --no-startup-id udiskie -t &

@@ -91,7 +91,7 @@
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = "us";
 
   # Tweaks
   boot.kernel.sysctl = {
@@ -118,7 +118,7 @@
   services.xserver = {
     enable = true;
     # Keyboard layout
-    layout = "de";
+    layout = "us";
     xkbVariant = "";
     autoRepeatDelay = 200;
     autoRepeatInterval = 30;
@@ -181,6 +181,9 @@
   # Credentials
   services.gnome.gnome-keyring.enable = true;
 
+  # automounting with udiskie frontend
+  services.udisks2.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -209,6 +212,7 @@
      unstable.golangci-lint
      unstable.checkov
      unstable.terraform-ls
+     unstable.terraform
      unstable.gnumake
      unstable.kubebuilder
      unstable.nil
@@ -225,8 +229,10 @@
      vlc
      spotify
      # files and dirs
+     xfce.thunar
      p7zip
      unstable.nnn
+     udiskie
      # privacy
      protonvpn-cli
      protonvpn-gui
@@ -248,6 +254,7 @@
          exec picom -b
        '';   
      })
+     gamemode
      # peripherals
      polychromatic
   ];

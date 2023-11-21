@@ -13,10 +13,5 @@ compinit
 # flux autocompletion
 command -v flux >/dev/null && . <(flux completion zsh)
 
-# Key mapping for qwertz
-xmodmap -e "keycode 34 = braceleft braceright" 2> /dev/null
-xmodmap -e "keycode 47 = parenleft parenright" 2> /dev/null
-xmodmap -e "keycode 48 = bracketleft bracketright" 2> /dev/null
-
 # prompt
 eval "$(starship init zsh)"
