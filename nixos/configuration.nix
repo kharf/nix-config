@@ -64,7 +64,7 @@
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. 
-  system.stateVersion = "23.05"; 
+  system.stateVersion = "23.11"; 
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -204,7 +204,7 @@
      unstable.tfswitch
      unstable.kind
      # development
-     unstable.go_1_21
+     unstable.go
      unstable.gopls
      unstable.delve
      unstable.cue
@@ -244,6 +244,7 @@
      # system
      bottom
      killall
+     appimage-run
      # games
      steam
      (inputs.nix-gaming.packages.${pkgs.system}.star-citizen.override {
@@ -255,6 +256,11 @@
        '';   
      })
      gamemode
+     (unstable.wineWowPackages.full.override {
+       wineRelease = "staging";
+       mingwSupport = true;
+     })
+     winetricks
      # peripherals
      polychromatic
   ];
