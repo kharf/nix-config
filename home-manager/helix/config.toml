@@ -4,7 +4,13 @@ theme = "oxocarbon"
 line-number = "relative"
 mouse = false
 bufferline = "multiple"
-completion-replace = true
+completion-replace = false
+
+[editor.lsp]
+display-messages = true
+
+[editor.file-picker]
+hidden = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -14,7 +20,7 @@ select = "underline"
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name",  "version-control"]
-right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+right = ["diagnostics", "workspace-diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
@@ -23,4 +29,4 @@ mode.select = "SELECT"
 [editor.whitespace.render]
 space = "all"
 tab = "none"
-newline = "none"
+newline = "all"

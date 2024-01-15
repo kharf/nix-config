@@ -35,12 +35,13 @@
       ".config/i3/config".source = ./i3/config;
       ".config/i3/i3-lock-screen-scaled.png".source = ./i3/i3-lock-screen-scaled.png;
       ".config/i3status-rust/config.toml".source = ./i3status-rust/config.toml;
-      ".alacritty.yml".source = ./alacritty/alacritty.yaml;
+      ".alacritty.toml".source = ./alacritty/alacritty.toml;
       ".config/starship.toml".source = ./starship/starship.toml;
       ".zshrc".source = ./zsh/zshrc;
       ".config/helix/config.toml".source = ./helix/config.toml;
       ".config/helix/themes/oxocarbon.toml".source = ./helix/themes/oxocarbon.toml;
-      ".config/k9s/skin.yml".source = ./k9s/skin.yaml;
+      ".config/k9s/skins/oxocarbon.yaml".source = ./k9s/skins/oxocarbon.yaml;
+      ".config/k9s/config.yaml".source = ./k9s/config.yaml;
       ".config/picom.conf".source = ./picom/picom.conf;
       ".xprofile".source = ./x/xprofile;
       ".background-image".source = ./wallpaper/nixos-wallpaper.png;

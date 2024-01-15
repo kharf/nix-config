@@ -14,7 +14,12 @@
       (final: prev: {
         unstable = import inputs.nixpkgs-unstable {
           system = final.system;
-          config.allowUnfree = true;
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = [
+              "electron-25.9.0" 
+            ];
+          };
         };
       })
     ];
@@ -120,7 +125,7 @@
     # Keyboard layout
     layout = "us";
     xkbVariant = "";
-    autoRepeatDelay = 200;
+    autoRepeatDelay = 300;
     autoRepeatInterval = 30;
 
     displayManager = {
@@ -165,8 +170,8 @@
   users.defaultUserShell = pkgs.zsh;
 
   # Fonts
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "SourceCodePro" "DejaVuSansMono" ]; })
+  fonts.packages = with pkgs; [
+    unstable.nerdfonts
     font-awesome
   ];
 
@@ -210,7 +215,7 @@
      unstable.cue
      unstable.cuelsp
      unstable.golangci-lint
-     unstable.checkov
+     checkov
      unstable.terraform-ls
      unstable.terraform
      unstable.gnumake
@@ -219,6 +224,7 @@
      unstable.sops
      unstable.httpie
      unstable.dbeaver
+     unstable.obsidian
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
@@ -233,8 +239,8 @@
      p7zip
      unstable.nnn
      udiskie
+     unzip
      # privacy
-     protonvpn-cli
      protonvpn-gui
      keepassxc
      _1password
@@ -245,6 +251,7 @@
      bottom
      killall
      appimage-run
+     tcpdump
      # games
      steam
      (inputs.nix-gaming.packages.${pkgs.system}.star-citizen.override {
@@ -255,11 +262,8 @@
          exec picom -b
        '';   
      })
+     inputs.nix-gaming.packages.${pkgs.system}.battlenet
      gamemode
-     (unstable.wineWowPackages.full.override {
-       wineRelease = "staging";
-       mingwSupport = true;
-     })
      winetricks
      # peripherals
      polychromatic
