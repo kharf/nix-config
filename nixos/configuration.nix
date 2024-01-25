@@ -198,6 +198,7 @@
      unstable.helix
      unstable.neofetch
      xclip
+     unstable.zoxide
      # browser
      unstable.brave
      # cloud cli
@@ -211,6 +212,8 @@
      # development
      unstable.go
      unstable.gopls
+     unstable.golangci-lint
+     unstable.golangci-lint-langserver
      unstable.delve
      unstable.cue
      unstable.cuelsp
@@ -262,7 +265,6 @@
          exec picom -b
        '';   
      })
-     inputs.nix-gaming.packages.${pkgs.system}.battlenet
      gamemode
      winetricks
      # peripherals

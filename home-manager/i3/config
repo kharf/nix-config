@@ -63,7 +63,7 @@ floating_modifier $mod
 # start a terminal:
 bindsym $mod+Return exec alacritty --class term
 
-bindsym $mod+Shift+Return [class="scratchterm"] scratchpad show; move position center
+bindsym $mod+u [class="scratchterm"] scratchpad show; move position center
 
 # kill focused window:
 bindsym $mod+c kill
