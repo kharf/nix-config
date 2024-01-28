@@ -4,3 +4,8 @@ disabled = false
 [kubernetes.context_aliases]
 "gke_.*_(?P<cluster>[\\w-]+)" = "gke-$cluster"
 
+[custom.environment]
+command = "echo $ENVIRONMENT"
+when = true
+symbol = '❄️ '
+style = "fg:#ee5396"

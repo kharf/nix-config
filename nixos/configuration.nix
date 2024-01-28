@@ -1,15 +1,9 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-
 { inputs, lib, config, pkgs, ... }: {
-  # You can import other NixOS modules here
   imports = [
-    # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
       (final: prev: {
         unstable = import inputs.nixpkgs-unstable {
@@ -21,22 +15,20 @@
             ];
           };
         };
+        work-shell = final.callPackage ../environments/work.nix {};
       })
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
 
   nix = {
     # This will add each flake input as a registry
-    # To make nix3 commands consistent with your flake
+    # To make nix3 commands consistent with flake
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-
-    # This will additionally add your inputs to the system's legacy channels
-    # Making legacy nix commands consistent as well, awesome!
+    # This will additionally add inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings = {
@@ -44,8 +36,12 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
-      substituters = ["https://nix-gaming.cachix.org"];
-      trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+      substituters = [
+          "https://nix-gaming.cachix.org"
+      ];
+      trusted-public-keys = [
+          "unix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
+      ];
     };
   };
 
@@ -192,6 +188,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+     # environments
+     work-shell
      # terminal
      unstable.alacritty
      unstable.starship
@@ -206,7 +204,6 @@
      unstable.kubectx
      unstable.k9s
      unstable.fluxcd
-     (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
      unstable.tfswitch
      unstable.kind
      # development
@@ -222,11 +219,9 @@
      unstable.terraform-ls
      unstable.terraform
      unstable.gnumake
-     unstable.kubebuilder
      unstable.nil
      unstable.sops
      unstable.httpie
-     unstable.dbeaver
      unstable.obsidian
      # key remap (executed in zshrc)
      xorg.xmodmap
