@@ -15,7 +15,8 @@
             ];
           };
         };
-        work-shell = final.callPackage ../environments/work.nix {};
+        prod-shell = final.callPackage ../environments/prod.nix {};
+        dev-shell = final.callPackage ../environments/dev.nix {};
       })
     ];
     config = {
@@ -189,7 +190,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      # environments
-     work-shell
+     prod-shell
+     dev-shell
      # terminal
      unstable.alacritty
      unstable.starship

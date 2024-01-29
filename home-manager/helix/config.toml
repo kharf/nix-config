@@ -4,7 +4,7 @@ theme = "oxocarbon"
 line-number = "relative"
 mouse = false
 bufferline = "multiple"
-completion-replace = false
+completion-replace = true
 
 [editor.lsp]
 display-messages = true
