@@ -15,8 +15,8 @@
             ];
           };
         };
-        prod-shell = final.callPackage ../environments/prod.nix {};
-        dev-shell = final.callPackage ../environments/dev.nix {};
+        prod-shell = final.callPackage ../environments/prod.nix {inherit config;};
+        dev-shell = final.callPackage ../environments/dev.nix {inherit config;};
       })
     ];
     config = {

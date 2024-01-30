@@ -1,10 +1,11 @@
-{pkgs, ...}:
+{pkgs, config, ...}:
 
 let
     packages = with pkgs; [
         unstable.dbeaver
         (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
     ];
+    home = config.users.users.kharf.home;
 in pkgs.runCommand "prod" {
     # Dependencies that should exist in the runtime environment
     buildInputs = packages;
@@ -17,6 +18,6 @@ in pkgs.runCommand "prod" {
     wrapProgram $out/bin/$cmd \
      --set ENVIRONMENT prod \
      --set CLOUDSDK_ACTIVE_CONFIG_NAME prod \
-     --set KUBECONFIG $HOME/.kube/prod \
+     --set KUBECONFIG ${home}/.kube/prod \
      --prefix PATH : ${pkgs.lib.makeBinPath packages}
 ''
