@@ -144,6 +144,14 @@
         picom
       ];
     };
+
+    libinput = {
+      mouse = {
+        accelProfile = "flat";
+        accelSpeed = "0";
+        middleEmulation = false;
+      };
+    };
   };
 
   hardware = {
@@ -206,13 +214,13 @@
      unstable.kubectx
      unstable.k9s
      unstable.fluxcd
-     unstable.tfswitch
      unstable.kind
      # development
      unstable.go
      unstable.gopls
      unstable.golangci-lint
      unstable.golangci-lint-langserver
+     unstable.golines
      unstable.delve
      unstable.cue
      unstable.cuelsp

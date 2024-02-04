@@ -43,7 +43,6 @@
       ".config/k9s/skins/oxocarbon.yaml".source = ./k9s/skins/oxocarbon.yaml;
       ".config/k9s/config.yaml".source = ./k9s/config.yaml;
       ".config/picom.conf".source = ./picom/picom.conf;
-      ".xprofile".source = ./x/xprofile;
       ".background-image".source = ./wallpaper/nixos-wallpaper.png;
     };
   };
