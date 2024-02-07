@@ -39,6 +39,7 @@
       ".config/starship.toml".source = ./starship/starship.toml;
       ".zshrc".source = ./zsh/zshrc;
       ".config/helix/config.toml".source = ./helix/config.toml;
+      ".config/helix/languages.toml".source = ./helix/languages.toml;
       ".config/helix/themes/oxocarbon.toml".source = ./helix/themes/oxocarbon.toml;
       ".config/k9s/skins/oxocarbon.yaml".source = ./k9s/skins/oxocarbon.yaml;
       ".config/k9s/config.yaml".source = ./k9s/config.yaml;
