@@ -14,4 +14,4 @@ formatter = { command = "golines" }
 command = "golangci-lint-langserver"
 
 [language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1"]
+command = ["golangci-lint", "run", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1"]

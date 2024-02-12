@@ -266,6 +266,7 @@
          exec picom -b
        '';   
      })
+     lutris
      gamemode
      winetricks
      # peripherals
