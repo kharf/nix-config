@@ -10,6 +10,21 @@ language-servers = [ "gopls", "golangci-lint-lsp" ]
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "golines" }
 
+[[language]]
+name = "cue"
+scope = "source.cue"
+injection-regex = "cue"
+file-types = ["cue"]
+roots = ["cue.mod"]
+auto-format = true
+comment-token = "//"
+language-servers = [ "cuepls" ]
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "cue", args = ["fmt", "-"] }
+
+[language-server.cuepls]
+command = "cuepls"
+
 [language-server.golangci-lint-lsp]
 command = "golangci-lint-langserver"
 
