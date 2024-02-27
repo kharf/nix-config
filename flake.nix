@@ -15,7 +15,10 @@
     nixosConfigurations = {
       kharf = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./nixos/configuration.nix ];
+        modules = [
+          ./nixos/configuration.nix
+          (import ./overlays)
+         ];
       };
     };
     # Standalone home-manager configuration entrypoint
