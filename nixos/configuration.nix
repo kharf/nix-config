@@ -204,6 +204,7 @@
      unstable.golines
      unstable.delve
      local.cue
+     local.dagger
      unstable.golangci-lint
      checkov
      unstable.terraform-ls
@@ -212,6 +213,7 @@
      unstable.nil
      unstable.sops
      unstable.httpie
+     unstable.insomnia
      unstable.obsidian
      # key remap (executed in zshrc)
      xorg.xmodmap
