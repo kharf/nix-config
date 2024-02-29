@@ -215,6 +215,7 @@
      unstable.httpie
      unstable.insomnia
      unstable.obsidian
+     unstable.hugo
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
