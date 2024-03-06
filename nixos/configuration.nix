@@ -198,7 +198,7 @@
      unstable.kind
      # development
      unstable.go_1_22
-     unstable.gopls
+     gopls
      unstable.golangci-lint
      unstable.golangci-lint-langserver
      unstable.golines
@@ -216,6 +216,7 @@
      unstable.insomnia
      unstable.obsidian
      unstable.hugo
+     unstable.jdt-language-server
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
@@ -255,6 +256,10 @@
      })
      lutris
      gamemode
+     (unstable.wineWowPackages.full.override {
+       wineRelease = "staging";
+       mingwSupport = true;
+     })
      winetricks
      # peripherals
      polychromatic

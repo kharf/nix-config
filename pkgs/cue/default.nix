@@ -1,11 +1,11 @@
 { pkgs, stdenv, lib, installShellFiles }:
 pkgs.stdenv.mkDerivation rec {
   pname = "cue";
-  version = "v0.8.0-alpha.4";
+  version = "v0.8.0-alpha.5";
   src = {
     x86_64-linux = pkgs.fetchurl {
       url = "https://github.com/cue-lang/cue/releases/download/${version}/${pname}_${version}_linux_amd64.tar.gz";
-      hash = "sha256-XK1oKUEfq8VMzzLMTk2fC6YQu+SHRqDtmMapIkl4jvw=";
+      hash = "sha256-IzAPso9qXmOV4meSxpDA/SItfxvR/LsrBjaWbYC8tw8=";
     };
     aarch64-linux = pkgs.fetchurl  {
       url = "https://github.com/cue-lang/cue/releases/download/${version}/${pname}_${version}_linux_arm64.tar.gz";
