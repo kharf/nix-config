@@ -146,6 +146,8 @@ for_window [class=(?i)brave] focus
 
 assign [class="Thunar"] $ws3
 for_window [class=Thunar] focus
+assign [class="DBeaver"] $ws3
+for_window [class=DBeaver] focus
 
 assign [class="(?i)microsoft teams - preview"] $ws4
 for_window [class="(?i)microsoft teams - preview"] focus
