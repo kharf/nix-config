@@ -175,6 +175,12 @@
   # automounting with udiskie frontend
   services.udisks2.enable = true;
 
+  # llm
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -213,7 +219,6 @@
      unstable.nil
      unstable.sops
      unstable.httpie
-     unstable.insomnia
      unstable.obsidian
      unstable.hugo
      unstable.jdt-language-server

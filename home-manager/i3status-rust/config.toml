@@ -20,13 +20,22 @@ separator_fg = "auto"
 icons = "awesome6"
 
 [[block]]
+block = "service_status"
+service = "ollama"
+active_format = " ollama running "
+inactive_format = " ollama off "
+[block.theme_overrides]
+idle_bg = "#ee5396"
+idle_fg = "#dde1e6"
+
+[[block]]
 block = "docker"
 interval = 2
 socket_path = "/run/user/1000/podman/podman.sock"
 format = " $icon $running/$total images: $images "
 [block.theme_overrides]
-idle_bg = "#ee5396"
-idle_fg = "#dde1e6"
+idle_bg = "#be95ff"
+idle_fg = "#161616"
 
 [[block]]
 block = "disk_space"
