@@ -178,7 +178,7 @@
   # llm
   services.ollama = {
     enable = true;
-    package = pkgs.ollama;
+    package = pkgs.unstable.ollama;
     acceleration = "rocm";
   };
 
