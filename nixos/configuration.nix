@@ -178,7 +178,7 @@
   # llm
   services.ollama = {
     enable = true;
-    package = pkgs.unstable.ollama;
+    package = pkgs.ollama;
     acceleration = "rocm";
   };
 
@@ -232,6 +232,7 @@
      alsa-utils
      vlc
      spotify
+     discord
      # files and dirs
      xfce.thunar
      p7zip
@@ -252,6 +253,8 @@
      tcpdump
      # games
      steam
+     local.wowup
+     local.battlenet
      (inputs.nix-gaming.packages.${pkgs.system}.star-citizen.override {
        preCommands = ''
          killall picom

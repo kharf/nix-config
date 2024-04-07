@@ -149,15 +149,19 @@ for_window [class=Thunar] focus
 assign [class="DBeaver"] $ws3
 for_window [class=DBeaver] focus
 
-assign [class="(?i)microsoft teams - preview"] $ws4
-for_window [class="(?i)microsoft teams - preview"] focus
 assign [class="(?i)RSI Launcher"] $ws4
 for_window [class="(?i)RSI Launcher"] focus
 assign [class="(?i)starcitizen.exe"] $ws4
 for_window [class="(?i)starcitizen.exe"] focus
+assign [class="(?i)battle.net.exe"] $ws4
+for_window [class="(?i)battle.net.exe"] focus
+assign [class="(?i)wowclassic.exe"] $ws4
+for_window [class="(?i)wowclassic.exe"] focus
 assign [class="steam_app_1466860"] $ws4
 for_window [class="steam_app_1466860"] focus
 
+assign [class="(?i)discord"] $ws5
+for_window [class="(?i)discord"] focus
 assign [class="(?i)steam"] $ws5
 for_window [class="(?i)steam"] focus
 

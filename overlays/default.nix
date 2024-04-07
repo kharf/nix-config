@@ -16,7 +16,7 @@
         dev-shell = final.callPackage ../environments/dev.nix {inherit config;};
       })
       (final: prev: {
-        local = import ../pkgs { pkgs = final.pkgs;};
+        local = import ../pkgs { pkgs = final.pkgs; inherit inputs;};
       })
     ];
 }
