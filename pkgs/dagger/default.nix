@@ -1,11 +1,11 @@
 { pkgs, stdenv, lib, installShellFiles }:
 pkgs.stdenv.mkDerivation rec {
   pname = "dagger";
-  version = "v0.10.3";
+  version = "v0.11.0";
   src = {
     x86_64-linux = pkgs.fetchurl {
       url = "https://github.com/dagger/dagger/releases/download/${version}/${pname}_${version}_linux_amd64.tar.gz";
-      hash = "sha256-Fe8um6imMjACiDSRdPUC1l2pH+pKIsJsHLHBttFUztM=";
+      hash = "sha256-pwwyHtpzyMxokZsG2aBAMZZkQLDmOPGoPP/meM7JbcY=";
     };
     aarch64-linux = pkgs.fetchurl  {
       url = "https://github.com/dagger/dagger/releases/download/${version}/${pname}_${version}_linux_arm64.tar.gz";
