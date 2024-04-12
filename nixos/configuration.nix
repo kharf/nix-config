@@ -220,7 +220,6 @@
      unstable.nil
      unstable.sops
      unstable.httpie
-     unstable.obsidian
      unstable.hugo
      unstable.jdt-language-server
      # key remap (executed in zshrc)
