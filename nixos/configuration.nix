@@ -197,12 +197,14 @@
      unstable.zoxide
      # browser
      unstable.brave
+     unstable.floorp
      # cloud cli
      unstable.kubectl
      unstable.kubectx
      unstable.k9s
      unstable.fluxcd
      unstable.kind
+     local.declcd
      # development
      unstable.go_1_22
      gopls
@@ -210,6 +212,7 @@
      unstable.golangci-lint-langserver
      unstable.golines
      unstable.delve
+     unstable.goreleaser
      local.cue
      local.dagger
      unstable.golangci-lint
@@ -252,16 +255,7 @@
      tcpdump
      # games
      steam
-     local.wowup
-     local.battlenet
-     (inputs.nix-gaming.packages.${pkgs.system}.star-citizen.override {
-       preCommands = ''
-         killall picom
-       '';   
-       postCommands = ''
-         exec picom -b
-       '';   
-     })
+     inputs.nix-gaming.packages.${pkgs.system}.star-citizen
      lutris
      gamemode
      (unstable.wineWowPackages.full.override {

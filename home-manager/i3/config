@@ -143,6 +143,8 @@ assign [class="(?i)firefox"] $ws2
 for_window [class=(?i)firefox] focus
 assign [class="(?i)brave"] $ws2
 for_window [class=(?i)brave] focus
+assign [class="(?i)floorp"] $ws2
+for_window [class=(?i)floorp] focus
 
 assign [class="Thunar"] $ws3
 for_window [class=Thunar] focus
@@ -287,7 +289,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # App shortcuts
-bindsym $mod+w exec "/run/current-system/sw/bin/brave"
+bindsym $mod+w exec "/run/current-system/sw/bin/floorp"
 bindsym $mod+k exec "/run/current-system/sw/bin/thunar"
 bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 
