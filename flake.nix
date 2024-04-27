@@ -13,10 +13,17 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#hostname'
     nixosConfigurations = {
-      kharf = nixpkgs.lib.nixosSystem {
+      x = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [
-          ./nixos/configuration.nix
+          ./nixos/x11/configuration.nix
+          (import ./overlays)
+         ];
+      };
+      wayland = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        modules = [
+          ./nixos/wayland/configuration.nix
           (import ./overlays)
          ];
       };
