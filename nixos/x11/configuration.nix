@@ -54,6 +54,13 @@
   networking.firewall.enable = true;
   networking.hostName = "kharf";
   networking.nameservers = [ "8.8.8.8" "8.8.8.4" ];
+  networking.firewall.interfaces."podman+".allowedUDPPorts = [ 53 ];
+  # in k8s pod to pod communication is expected to go through iptables
+  boot.kernel.sysctl = {
+    "net.bridge.bridge-nf-call-iptables"  = 1;
+    "net.ipv4.ip_forward"                 = 1;
+    "net.bridge.bridge-nf-call-ip6tables" = 1;
+  };
 
   # Time zone.
   time.timeZone = "Europe/Berlin";
@@ -81,6 +88,14 @@
     "vm.max_map_count" = 16777216;
     "fs.file-max" = 524288;
   };
+
+  # rootless podman
+  # disable cgroup v1
+  boot.kernelParams = [ "cgroup_no_v1=all" "systemd.unified_cgroup_hierarchy=1" ];
+  # bpf programs need higher memlock
+  security.pam.loginLimits = [
+    { domain = "*"; item = "memlock"; type = "-"; value = "unlimited"; }
+  ];
 
   # Swap
   zramSwap = {
@@ -168,6 +183,17 @@
       dockerCompat = true;
     };
   };
+  security.sudo.extraRules = [
+  {
+    users = [ "kharf" ];
+    commands = [
+      {
+       command = "/run/current-system/sw/bin/podman";
+       options= [ "NOPASSWD" ];
+      }
+    ];
+  }
+  ];
 
   # Credentials
   services.gnome.gnome-keyring.enable = true;
@@ -204,6 +230,8 @@
      unstable.k9s
      unstable.fluxcd
      unstable.kind
+     unstable.cilium-cli
+     unstable.minikube
      local.declcd
      # development
      unstable.go_1_22
@@ -241,6 +269,7 @@
      unstable.nnn
      udiskie
      unzip
+     libreoffice
      # privacy
      protonvpn-gui
      keepassxc

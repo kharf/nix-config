@@ -1,11 +1,11 @@
 { pkgs, stdenv, lib, installShellFiles }:
 pkgs.stdenv.mkDerivation rec {
   pname = "declcd";
-  version = "v0.10.0";
+  version = "v0.11.0";
   src = {
     x86_64-linux = pkgs.fetchurl {
       url = "https://github.com/kharf/${pname}/releases/download/${version}/${pname}-linux-amd64";
-      hash = "sha256-kDClS2pHQb1oSUMrybFdEOnhIsSo7h10bAKPu91NJi8=";
+      hash = "sha256-C8QUgvA2s01rYO7/L9lTP53DEBsQVx4JgNCLwMigP2U=";
     };
   }.${stdenv.hostPlatform.system} or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
 

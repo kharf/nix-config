@@ -164,7 +164,7 @@ for_window [class="steam_app_1466860"] focus
 
 assign [class="(?i)discord"] $ws5
 for_window [class="(?i)discord"] focus
-assign [class="(?i)steam"] $ws5
+assign [class="(?i)steam"] $ws4
 for_window [class="(?i)steam"] focus
 
 assign [class="Spotify"] $ws8
