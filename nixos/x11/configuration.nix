@@ -233,6 +233,7 @@
      unstable.cilium-cli
      unstable.minikube
      local.declcd
+     (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
      # development
      unstable.go_1_22
      gopls

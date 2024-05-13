@@ -29,3 +29,8 @@ style = "Italic"
 [font.normal]
 family = "GeistMono Nerd Font"
 style = "SemiBold"
+
+[keyboard]
+bindings = [
+   { key = "*", mods = "Control|Shift", action = "ToggleViMode" }
+]

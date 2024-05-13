@@ -137,7 +137,7 @@ bindsym $mod+s exec --no-startup-id ~/.config/i3/scripts/empty_workspace.sh
 # autostart start applications + bind program to workspace:
 assign [class="term"] $ws1
 for_window [class=term] focus
-for_window [class="scratchterm"] floating enable, resize set 1500 1000, move scratchpad
+for_window [class="scratchterm"] floating enable, resize set 2000 1200, move scratchpad
 
 assign [class="(?i)firefox"] $ws2
 for_window [class=(?i)firefox] focus
@@ -212,27 +212,27 @@ bindsym --whole-window --border $mod+shift+button4 resize shrink width 5 px or 5
 bindsym --whole-window --border $mod+shift+button5 resize grow width 5 px or 5 ppt
 
 # switch to workspace:
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
+bindsym $mod+Shift+1 workspace $ws1
+bindsym $mod+Shift+9 workspace $ws2
+bindsym $mod+Shift+0 workspace $ws3
+bindsym $mod+Shift+bracketleft workspace $ws4
+bindsym $mod+Shift+bracketright workspace $ws5
+bindsym $mod+bracketleft workspace $ws6
+bindsym $mod+bracketright workspace $ws7
+bindsym $mod+Shift+8 workspace $ws8
+bindsym $mod+Shift+7 workspace $ws9
 
 
 # move focused container to workspace:
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+1 move container to workspace $ws1
+bindsym $mod+2 move container to workspace $ws2
+bindsym $mod+3 move container to workspace $ws3
+bindsym $mod+4 move container to workspace $ws4
+bindsym $mod+5 move container to workspace $ws5
+bindsym $mod+6 move container to workspace $ws6
+bindsym $mod+7 move container to workspace $ws7
+bindsym $mod+8 move container to workspace $ws8
+bindsym $mod+9 move container to workspace $ws9
 
 
 # reload the configuration file:

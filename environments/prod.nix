@@ -3,7 +3,6 @@
 let
     packages = with pkgs; [
         unstable.dbeaver
-        (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
     ];
     home = config.users.users.kharf.home;
 in pkgs.runCommand "prod" {
