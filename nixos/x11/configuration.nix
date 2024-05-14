@@ -227,6 +227,7 @@
      # cloud cli
      unstable.kubectl
      unstable.kubectx
+     unstable.kubent
      unstable.k9s
      unstable.fluxcd
      unstable.kind
