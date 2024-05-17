@@ -24,6 +24,8 @@ pkgs.stdenv.mkDerivation rec {
     cp cuepls $out/bin/cuepls
     chmod +x $out/bin/cue
     chmod +x $out/bin/cuepls
+
+    runHook postInstall
   '';
 
   installCheckPhase = ''

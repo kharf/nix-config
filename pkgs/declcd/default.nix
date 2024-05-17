@@ -1,11 +1,11 @@
 { pkgs, stdenv, lib, installShellFiles }:
 pkgs.stdenv.mkDerivation rec {
   pname = "declcd";
-  version = "v0.15.0";
+  version = "v0.16.0";
   src = {
     x86_64-linux = pkgs.fetchurl {
-      url = "https://github.com/kharf/${pname}/releases/download/${version}/${pname}-linux-amd64";
-      hash = "sha256-paEPT8qpbcO9HlgU8o9a/PpSgnzAF4Jrp4tFPkGSPx8=";
+      url = "https://github.com/kharf/${pname}/releases/download/${version}/${pname}_linux_x86_64.tar.gz";
+      hash = "sha256-azWGElBF8+tC5x9uUUhL28cwMLvSbj+ORXVOysjrdlU=";
     };
   }.${stdenv.hostPlatform.system} or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
 
@@ -14,9 +14,12 @@ pkgs.stdenv.mkDerivation rec {
   nativeBuildInputs = [ installShellFiles ];
 
   installPhase = ''
+    tar -xf $src
     mkdir -p $out/bin
-    cp $src $out/bin/${pname}
+    cp ${pname} $out/bin/${pname}
     chmod +x $out/bin/${pname}
+
+    runHook postInstall
   '';
 
   installCheckPhase = ''

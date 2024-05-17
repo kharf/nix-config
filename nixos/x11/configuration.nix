@@ -223,7 +223,6 @@
      unstable.zoxide
      # browser
      unstable.brave
-     unstable.floorp
      # cloud cli
      unstable.kubectl
      unstable.kubectx
