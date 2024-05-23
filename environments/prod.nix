@@ -2,7 +2,7 @@
 
 let
     packages = with pkgs; [
-        unstable.dbeaver
+        unstable.dbeaver-bin
     ];
     home = config.users.users.kharf.home;
 in pkgs.runCommand "prod" {
