@@ -254,6 +254,7 @@
      unstable.httpie
      unstable.hugo
      unstable.jdt-language-server
+     unstable.hey
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
