@@ -112,18 +112,34 @@
     pulse.enable = true;
   };
 
+  # Input
+  services.libinput = {
+    mouse = {
+      accelProfile = "flat";
+      accelSpeed = "0";
+      middleEmulation = false;
+    };
+  };
+
+  # DM
+  services.displayManager = {
+    defaultSession = "none+i3";
+  };
+  
+
   # X
   services.xserver = {
     enable = true;
     # Keyboard layout
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
     autoRepeatDelay = 300;
     autoRepeatInterval = 30;
 
     displayManager = {
       lightdm.enable = true;
-      defaultSession = "none+i3";
     };
 
     desktopManager = {
@@ -139,14 +155,6 @@
         i3status-rust
         picom
       ];
-    };
-
-    libinput = {
-      mouse = {
-        accelProfile = "flat";
-        accelSpeed = "0";
-        middleEmulation = false;
-      };
     };
   };
 
@@ -255,6 +263,7 @@
      unstable.hugo
      unstable.jdt-language-server
      unstable.hey
+     unstable.marksman
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
