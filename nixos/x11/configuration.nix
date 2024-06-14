@@ -237,10 +237,13 @@
      unstable.kubent
      unstable.k9s
      unstable.fluxcd
+     unstable.kubernetes-helm
      unstable.kind
      unstable.cilium-cli
      unstable.minikube
      local.declcd
+     unstable.trivy
+     unstable.kube-bench
      (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
      # development
      unstable.go_1_22
@@ -264,6 +267,8 @@
      unstable.jdt-language-server
      unstable.hey
      unstable.marksman
+     unstable.crane
+     unstable.openssl
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures

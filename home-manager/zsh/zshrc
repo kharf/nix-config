@@ -8,6 +8,7 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 export DOCKER_SOCK=$XDG_RUNTIME_DIR/podman/podman.sock
 export TESTCONTAINERS_RYUK_DISABLED=true
 export PATH="$PATH:$HOME/.local/bin"
+alias k=kubectl
 alias cd=z
 # prompt
 eval "$(starship init zsh)"
