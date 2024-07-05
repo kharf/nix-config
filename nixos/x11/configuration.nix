@@ -216,6 +216,12 @@
     acceleration = "rocm";
   };
 
+  # signing
+  programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -255,6 +261,7 @@
      unstable.goreleaser
      local.cue
      local.dagger
+     unstable.nodePackages.typescript-language-server
      unstable.golangci-lint
      checkov
      unstable.terraform-ls
@@ -269,6 +276,9 @@
      unstable.marksman
      unstable.crane
      unstable.openssl
+     unstable.dig
+     unstable.traceroute
+     unstable.openssh
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures
