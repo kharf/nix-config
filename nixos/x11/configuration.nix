@@ -232,7 +232,7 @@
      unstable.alacritty
      unstable.starship
      unstable.helix
-     unstable.neofetch
+     unstable.fastfetch
      xclip
      unstable.zoxide
      # browser
@@ -304,7 +304,7 @@
      age
      step-cli
      # system
-     bottom
+     unstable.btop
      killall
      appimage-run
      tcpdump

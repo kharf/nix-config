@@ -67,8 +67,8 @@
           "ssh://git@github.com/mediamarktsaturn" = {
             insteadOf = "https://github.com/mediamarktsaturn";
          };
-        commit.gpgsign = true;
         };
+        commit.gpgsign = true;
       };
     };
   };
