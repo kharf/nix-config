@@ -210,7 +210,7 @@
   # llm
   services.ollama = {
     enable = true;
-    package = pkgs.ollama;
+    package = pkgs.unstable.ollama;
     acceleration = "rocm";
   };
 
@@ -219,6 +219,7 @@
       enable = true;
       enableSSHSupport = true;
   };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -251,7 +252,7 @@
      (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
      # development
      unstable.go_1_22
-     gopls
+     unstable.gopls
      unstable.golangci-lint
      unstable.golangci-lint-langserver
      unstable.golines
@@ -259,8 +260,6 @@
      unstable.goreleaser
      local.cue
      local.dagger
-     unstable.nodePackages.typescript-language-server
-     unstable.golangci-lint
      checkov
      unstable.terraform-ls
      unstable.terraform
@@ -268,8 +267,6 @@
      unstable.nil
      unstable.sops
      unstable.httpie
-     unstable.hugo
-     unstable.jdt-language-server
      unstable.hey
      unstable.marksman
      unstable.crane
@@ -277,11 +274,14 @@
      unstable.dig
      unstable.traceroute
      unstable.openssh
+     unstable.gh-dash
+     unstable.gh
      # key remap (executed in zshrc)
      xorg.xmodmap
-     # pictures
+     # pictures / videos
      feh
      flameshot
+     obs-studio
      # media
      alsa-utils
      vlc
