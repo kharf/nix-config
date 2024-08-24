@@ -93,6 +93,7 @@
   # bpf programs need higher memlock
   security.pam.loginLimits = [
     { domain = "*"; item = "memlock"; type = "-"; value = "unlimited"; }
+    { domain = "*"; item = "nofile"; type = "-"; value = "1048576"; }
   ];
 
   # Swap
@@ -253,6 +254,7 @@
      local.declcd
      unstable.trivy
      unstable.kube-bench
+     unstable.cmctl
      (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
      # development
      unstable.go_1_22

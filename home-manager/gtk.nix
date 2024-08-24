@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   gtk = {
     enable = true;
-    font.name = " Sauce Code Pro Nerd Font";
+    font.name = "Iosevka Nerd Font";
     iconTheme = {
       package = pkgs.dracula-icon-theme;
       name = "Dracula";

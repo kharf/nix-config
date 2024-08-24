@@ -15,20 +15,20 @@ foreground = "#f2f4f8"
 size = 12
 
 [font.bold]
-family = "GeistMono Nerd Font"
+family = "IosevkaTerm Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "GeistMono Nerd Font"
+family = "IosevkaTerm Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "GeistMono Nerd Font"
+family = "IosevkaTerm Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "GeistMono Nerd Font"
-style = "SemiBold"
+family = "IosevkaTerm Nerd Font"
+style = "Regular"
 
 [keyboard]
 bindings = [
