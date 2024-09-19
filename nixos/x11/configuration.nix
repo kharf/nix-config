@@ -152,7 +152,6 @@
         i3lock
         rofi
         i3status-rust
-        picom
       ];
     };
   };
@@ -208,7 +207,7 @@
   # automounting with udiskie frontend
   services.udisks2.enable = true;
 
-  # llm
+  # LLM
   services.ollama = {
     enable = true;
     package = pkgs.unstable.ollama;
@@ -221,8 +220,16 @@
 
   # signing
   programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
+    enable = true;
+    enableSSHSupport = true;
+  };
+
+  # Printing
+  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
   };
 
 

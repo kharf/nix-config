@@ -51,7 +51,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # font, it doesn’t scale on retina/hidpi displays.
 font pango:Iosevka Nerd Font Mono Regular 10
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 #smart_borders on
 
 # thin borders:
@@ -180,9 +180,6 @@ for_window [class=".protonvpn-wrapped"] focus
 # dex execute .desktop files:
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart
 
-# Compositor:
-exec --no-startup-id picom
-
 #set wallpaper:
 exec --no-startup-id nitrogen --restore
 
@@ -296,7 +293,7 @@ bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 # Lock the system
 bindsym $mod+shift+p exec i3lock -i ~/.config/i3/i3-lock-screen-scaled.png -t -f
 
-set $bg-color            #8fbcbb
+set $bg-color            #08bdba
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676e7d
@@ -305,7 +302,7 @@ set $indicator-color     #a0a0a0
 
 # set window colors:
 #                       border             background         text                 indicator
-#client.focused          $bg-color          $bg-color          $text-color          $indicator-color
+client.focused          $bg-color          $bg-color          $text-color          $indicator-color
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
