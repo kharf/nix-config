@@ -314,7 +314,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available):
 bar {
-    font pango:Iosevka Nerd Font Mono Regular 14 
+    font pango:Iosevka Nerd Font Mono Regular 12 
     status_command i3status-rs ~/.config/i3status-rust/config.toml
     position top
     colors {

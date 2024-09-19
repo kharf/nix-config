@@ -240,7 +240,7 @@
      xclip
      unstable.zoxide
      # browser
-     unstable.brave
+     brave
      # cloud cli
      unstable.kubectl
      unstable.kubectx
@@ -282,6 +282,7 @@
      unstable.openssh
      unstable.gh-dash
      unstable.gh
+     unstable.helix-gpt
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures / videos
