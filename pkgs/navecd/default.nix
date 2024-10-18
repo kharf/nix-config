@@ -1,11 +1,11 @@
 { pkgs, stdenv, lib, installShellFiles }:
 pkgs.stdenv.mkDerivation rec {
-  pname = "declcd";
-  version = "v0.25.0-alpha.5";
+  pname = "navecd";
+  version = "v0.26.0";
   src = {
     x86_64-linux = pkgs.fetchurl {
       url = "https://github.com/kharf/${pname}/releases/download/${version}/${pname}_linux_x86_64.tar.gz";
-      hash = "sha256-Fxt+cKHISJngC9fl38+j3ltiiPRPEYIBjnxQJsccZbU=";
+      hash = "sha256-y5cIAro/H8mHNlhdd5olMGyQhYRt4XTYkFM+jp0X/Mw=";
     };
   }.${stdenv.hostPlatform.system} or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
 
@@ -35,7 +35,7 @@ pkgs.stdenv.mkDerivation rec {
 
   meta = with lib;  {
     description = "A Declarative Continuous Delivery Toolkit For Kubernetes";
-    homepage = "https://declcd.io/";
+    homepage = "https://navecd.dev/";
     license = lib.licenses.asl20;
     maintainers = with maintainers; [ kharf ];
   };

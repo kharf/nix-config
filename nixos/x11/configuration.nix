@@ -207,17 +207,6 @@
   # automounting with udiskie frontend
   services.udisks2.enable = true;
 
-  # LLM
-  services.ollama = {
-    enable = true;
-    package = pkgs.unstable.ollama;
-    acceleration = "rocm";
-    environmentVariables = {
-      HCC_AMDGPU_TARGET = "gfx1030";
-      HSA_OVERRIDE_GFX_VERSION = "10.3.0";
-    };
-  };
-
   # signing
   programs.gnupg.agent = {
     enable = true;
@@ -258,13 +247,13 @@
      unstable.kind
      unstable.cilium-cli
      unstable.minikube
-     local.declcd
+     local.navecd
      unstable.trivy
      unstable.kube-bench
      unstable.cmctl
      (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
      # development
-     unstable.go_1_22
+     unstable.go_1_23
      unstable.gopls
      unstable.golangci-lint
      unstable.golangci-lint-langserver
@@ -290,6 +279,7 @@
      unstable.gh-dash
      unstable.gh
      unstable.helix-gpt
+     unstable.yq
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures / videos
@@ -301,11 +291,13 @@
      vlc
      spotify
      discord
+     unstable.teamspeak_client
      # files and dirs
      xfce.thunar
      p7zip
      unstable.nnn
      udiskie
+     dua
      unzip
      libreoffice
      # privacy

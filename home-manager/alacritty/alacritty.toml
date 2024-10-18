@@ -32,5 +32,5 @@ style = "Regular"
 
 [keyboard]
 bindings = [
-   { key = "*", mods = "Control|Shift", action = "ToggleViMode" }
+   { key = "8", mods = "Control", action = "ToggleViMode" }
 ]
