@@ -6,6 +6,10 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-citizen.url = "github:LovingMelody/nix-citizen";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
