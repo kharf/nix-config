@@ -22,8 +22,6 @@
       experimental-features = "nix-command flakes";
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
-      substituters = ["https://nix-citizen.cachix.org"];
-      trusted-public-keys = ["nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="];
     };
   };
 
@@ -316,14 +314,7 @@
      tcpdump
      # games
      steam
-     lutris
      gamemode
-     (unstable.wineWowPackages.full.override {
-       wineRelease = "staging";
-       mingwSupport = true;
-     })
-     winetricks
-     inputs.nix-citizen.packages.${system}.star-citizen
      # peripherals
      polychromatic
   ];
