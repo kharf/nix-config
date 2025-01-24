@@ -18,12 +18,12 @@ file-types = ["cue"]
 roots = ["cue.mod/"]
 auto-format = true
 comment-token = "//"
-language-servers = [ "cuepls" ]
+language-servers = [ "cuelsp" ]
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "cue", args = ["fmt", "-"] }
 
-[language-server.cuepls]
-command = "cuepls"
+[language-server.cuelsp]
+command = "cue lsp"
 
 [language-server.golangci-lint-lsp]
 command = "golangci-lint-langserver"

@@ -137,12 +137,8 @@ assign [class="term"] $ws1
 for_window [class=term] focus
 for_window [class="scratchterm"] floating enable, resize set 2000 1200, move scratchpad
 
-assign [class="(?i)firefox"] $ws2
-for_window [class=(?i)firefox] focus
 assign [class="(?i)brave"] $ws2
 for_window [class=(?i)brave] focus
-assign [class="(?i)floorp"] $ws2
-for_window [class=(?i)floorp] focus
 
 assign [class="Thunar"] $ws3
 for_window [class=Thunar] focus
@@ -162,6 +158,8 @@ for_window [class="steam_app_1466860"] focus
 
 assign [class="(?i)discord"] $ws5
 for_window [class="(?i)discord"] focus
+assign [class="(?i)vesktop"] $ws5
+for_window [class="(?i)vesktop"] focus
 assign [class="(?i)steam"] $ws4
 for_window [class="(?i)steam"] focus
 

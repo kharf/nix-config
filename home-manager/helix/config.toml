@@ -5,6 +5,10 @@ line-number = "relative"
 mouse = false
 bufferline = "multiple"
 completion-replace = true
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "error"
 
 [editor.lsp]
 display-messages = true
@@ -20,7 +24,7 @@ select = "underline"
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name",  "version-control"]
-right = ["diagnostics", "workspace-diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+right = ["diagnostics", "workspace-diagnostics", "selections", "position", "primary-selection-length", "file-encoding", "file-line-ending", "file-type"]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"

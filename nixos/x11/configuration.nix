@@ -26,7 +26,7 @@
   };
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Bootloader.
   boot.loader = {
@@ -157,14 +157,9 @@
   };
 
   hardware = {
-    # Vulkan
-    opengl = {
-      driSupport = true;  
-      driSupport32Bit = true;
-    };
-    # razer driver
-    openrazer = {
+    graphics = {
       enable = true;
+      enable32Bit = true;
     };
   };
 
@@ -172,13 +167,14 @@
   users.users.kharf = {
     isNormalUser = true;
     description = "kharf";
-    extraGroups = [ "networkmanager" "wheel" "audio" "openrazer" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
   };
   users.defaultUserShell = pkgs.zsh;
 
   # Fonts
   fonts.packages = with pkgs; [
-    unstable.nerdfonts
+    unstable.nerd-fonts.iosevka
+    unstable.nerd-fonts.iosevka-term
     font-awesome
   ];
 
@@ -291,6 +287,7 @@
      vlc
      spotify
      discord
+     vesktop
      unstable.teamspeak_client
      # files and dirs
      xfce.thunar
@@ -303,7 +300,7 @@
      # privacy
      protonvpn-gui
      keepassxc
-     _1password
+     _1password-cli
      _1password-gui
      age
      step-cli
@@ -312,11 +309,16 @@
      killall
      appimage-run
      tcpdump
+     pciutils
      # games
-     steam
+     wineWowPackages.staging
+     winetricks
+     protontricks
      gamemode
+     local.aoc
+     mangohud
+     unstable.lutris
      # peripherals
-     polychromatic
   ];
 
   programs = {
@@ -327,5 +329,11 @@
     dconf.enable = true;
     ssh.askPassword = "";
     nm-applet.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
   };
 }

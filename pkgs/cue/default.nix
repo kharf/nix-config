@@ -1,11 +1,11 @@
 { pkgs, stdenv, lib, installShellFiles }:
 pkgs.stdenv.mkDerivation rec {
   pname = "cue";
-  version = "v0.11.0-alpha.3";
+  version = "v0.11.0";
   src = {
     x86_64-linux = pkgs.fetchurl {
       url = "https://github.com/cue-lang/cue/releases/download/${version}/${pname}_${version}_linux_amd64.tar.gz";
-      hash = "sha256-qUY6t9m4b6WIUfoIELeE4d0/jmY1YLSqr8Q0iv2HQq0=";
+      hash = "sha256-//c4WZk5DAXHhaX95TdQAsGwLCzernGV76XpmXAA3Uc=";
     };
     aarch64-linux = pkgs.fetchurl  {
       url = "https://github.com/cue-lang/cue/releases/download/${version}/${pname}_${version}_linux_arm64.tar.gz";
@@ -21,9 +21,7 @@ pkgs.stdenv.mkDerivation rec {
     tar -xf $src
     mkdir -p $out/bin
     cp cue $out/bin/cue
-    cp cuepls $out/bin/cuepls
     chmod +x $out/bin/cue
-    chmod +x $out/bin/cuepls
 
     runHook postInstall
   '';
