@@ -248,6 +248,8 @@
      unstable.kube-bench
      unstable.cmctl
      (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
+     unstable.terraform-ls
+     unstable.tenv
      # development
      unstable.go_1_23
      unstable.gopls
@@ -259,8 +261,6 @@
      local.cue
      local.dagger
      checkov
-     unstable.terraform-ls
-     unstable.terraform
      unstable.gnumake
      unstable.nil
      unstable.sops
