@@ -30,7 +30,3 @@ command = "golangci-lint-langserver"
 
 [language-server.golangci-lint-lsp.config]
 command = ["golangci-lint", "run", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1"]
-
-[language-server.gpt]
-command = "helix-gpt"
-args = [ "--handler", "ollama", "--ollamaModel", "deepseek-coder:6.7b-instruct"]

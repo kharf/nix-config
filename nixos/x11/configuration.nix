@@ -260,7 +260,7 @@
      unstable.goreleaser
      local.cue
      local.dagger
-     checkov
+     unstable.checkov
      unstable.gnumake
      unstable.nil
      unstable.sops
@@ -276,6 +276,7 @@
      unstable.gh
      unstable.helix-gpt
      unstable.yq
+     unstable.jq
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures / videos
