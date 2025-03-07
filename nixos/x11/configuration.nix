@@ -277,6 +277,7 @@
      unstable.helix-gpt
      unstable.yq
      unstable.jq
+     unstable.jujutsu
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures / videos

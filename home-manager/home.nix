@@ -43,6 +43,7 @@
       ".config/helix/themes/oxocarbon.toml".source = ./helix/themes/oxocarbon.toml;
       ".config/k9s/skins/oxocarbon.yaml".source = ./k9s/skins/oxocarbon.yaml;
       ".config/k9s/config.yaml".source = ./k9s/config.yaml;
+      ".config/jj/config.toml".source = ./jj/config.toml;
       ".background-image".source = ./wallpaper/nixos-wallpaper.png;
     };
   };
