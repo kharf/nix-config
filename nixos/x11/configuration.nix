@@ -320,6 +320,7 @@
      local.aoc
      mangohud
      unstable.lutris
+     local.bar
      # peripherals
   ];
 
