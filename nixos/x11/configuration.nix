@@ -216,7 +216,9 @@
     nssmdns4 = true;
     openFirewall = true;
   };
-
+  # Fuse filesystem that returns symlinks to executables based on the PATH of the requesting process.
+  # This is useful to execute shebangs on NixOS that assume hard coded locations in locations like /bin or /usr/bin etc
+  services.envfs.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -231,6 +233,7 @@
      unstable.fastfetch
      xclip
      unstable.zoxide
+     bc
      # browser
      brave
      # cloud cli
