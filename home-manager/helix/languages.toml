@@ -6,7 +6,7 @@ file-types = ["go"]
 roots = ["go.work", "go.mod"]
 auto-format = true
 comment-token = "//"
-language-servers = [ "gopls", "golangci-lint-lsp" ]
+language-servers = ["gopls", "golangci-lint-lsp", "gpt"]
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "golines" }
 
@@ -18,15 +18,24 @@ file-types = ["cue"]
 roots = ["cue.mod/"]
 auto-format = true
 comment-token = "//"
-language-servers = [ "cuelsp" ]
+language-servers = ["cuelsp", "gpt"]
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "cue", args = ["fmt", "-"] }
 
+[[language]]
+name = "hcl"
+language-servers = ["terraform-ls", "gpt"]
+
 [language-server.cuelsp]
-command = "cue lsp"
+command = "cue"
+args = ["lsp"]
 
 [language-server.golangci-lint-lsp]
 command = "golangci-lint-langserver"
 
 [language-server.golangci-lint-lsp.config]
 command = ["golangci-lint", "run", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1"]
+
+[language-server.gpt]
+command = "helix-gpt"
+args = ["--handler", "copilot"]

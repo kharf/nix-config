@@ -262,9 +262,9 @@
      unstable.golines
      unstable.delve
      unstable.goreleaser
-     local.cue
+     unstable.cue
      local.dagger
-     unstable.checkov
+     checkov
      unstable.gnumake
      unstable.nil
      unstable.sops
@@ -282,12 +282,15 @@
      unstable.yq
      unstable.jq
      unstable.jujutsu
+     unstable.helix-gpt
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures / videos
      feh
      flameshot
      obs-studio
+     gpu-screen-recorder
+     gpu-screen-recorder-gtk
      # media
      alsa-utils
      vlc
