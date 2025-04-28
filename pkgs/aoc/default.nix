@@ -18,9 +18,9 @@
   };
 
   script = writeShellScriptBin pname ''
+    if [ ! -d "${location}" ]; then
     export WINEARCH="win64"
     export WINEPREFIX="${location}"
-    if [ ! -d "$WINEPREFIX" ]; then
       # install launcher
       wine ${src}
     else
@@ -28,7 +28,7 @@
       export PROTONPATH="${proton-ge-bin.steamcompattool}/"
       export STORE="none"
       export PROTON_VERBS="run"
-      GAME="$WINEPREFIX/drive_c/Program Files/Intrepid Studios/AshesOfCreation/PROD/AOCClient.exe"
+      GAME="${location}/drive_c/Program Files/Intrepid Studios/AshesOfCreation/PROD/AOCClient.exe"
       LAUNCHER_PORT="$(netstat -ulpn 2>/dev/null | grep wineserv | awk '{split($4, a , ":"); print a[2]}')"
       ${gamemode}/bin/gamemoderun umu-run "$GAME" LauncherTetherPort=$LAUNCHER_PORT -NOSPLASH -USEEOS=0
     fi

@@ -26,7 +26,7 @@
   };
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   # Bootloader.
   boot.loader = {
@@ -49,9 +49,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+
   networking.firewall.enable = true;
   networking.hostName = "kharf";
-  networking.nameservers = [ "8.8.8.8" "8.8.8.4" ];
   networking.firewall.interfaces."podman+".allowedUDPPorts = [ 53 ];
   # in k8s pod to pod communication is expected to go through iptables
   boot.kernel.sysctl = {
@@ -328,6 +329,7 @@
      mangohud
      unstable.lutris
      local.bar
+     unstable.umu-launcher
      # peripherals
   ];
 
