@@ -145,6 +145,8 @@ for_window [class=Thunar] focus
 assign [class="DBeaver"] $ws3
 for_window [class=DBeaver] focus
 
+assign [class="intrepidstudioslauncher.exe"] $ws3
+for_window [class="intrepidstudioslauncher.exe"] focus
 assign [class="(?i)RSI Launcher"] $ws4
 for_window [class="(?i)RSI Launcher"] focus
 assign [class="(?i)starcitizen.exe"] $ws4

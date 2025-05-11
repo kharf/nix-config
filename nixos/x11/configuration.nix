@@ -90,7 +90,8 @@
 
   # rootless podman
   # disable cgroup v1
-  boot.kernelParams = [ "cgroup_no_v1=all" "systemd.unified_cgroup_hierarchy=1" ];
+  # disable PP_OVERDRIVE_MASK, PP_GFXOFF_MASK, and PP_STUTTER_MODE to avoid complete system freezes
+  boot.kernelParams = [ "cgroup_no_v1=all" "systemd.unified_cgroup_hierarchy=1" "amdgpu.ppfeaturemask=0xfffd3fff"];
   # bpf programs need higher memlock
   security.pam.loginLimits = [
     { domain = "*"; item = "memlock"; type = "-"; value = "unlimited"; }
@@ -119,6 +120,16 @@
       accelSpeed = "0";
       middleEmulation = false;
     };
+  };
+
+  services.udev = {
+    packages = with pkgs; [
+      qmk
+      qmk-udev-rules
+      qmk_hid
+      via
+      vial
+    ];
   };
 
   # DM
@@ -279,25 +290,23 @@
      unstable.openssh
      unstable.gh-dash
      unstable.gh
-     unstable.helix-gpt
      unstable.yq
      unstable.jq
      unstable.jujutsu
      unstable.helix-gpt
+     unstable.zed-editor
      # key remap (executed in zshrc)
      xorg.xmodmap
      # pictures / videos
      feh
      flameshot
      obs-studio
-     gpu-screen-recorder
      gpu-screen-recorder-gtk
      # media
      alsa-utils
      vlc
      spotify
-     discord
-     vesktop
+     unstable.vesktop
      unstable.teamspeak_client
      # files and dirs
      xfce.thunar
@@ -324,13 +333,12 @@
      wineWowPackages.staging
      winetricks
      protontricks
-     gamemode
      local.aoc
      mangohud
      unstable.lutris
-     local.bar
      unstable.umu-launcher
      # peripherals
+     vial
   ];
 
   programs = {
@@ -346,6 +354,10 @@
       extraCompatPackages = with pkgs; [
         proton-ge-bin
       ];
+    };
+    gamemode.enable = true;
+    gpu-screen-recorder = {
+      enable = true;
     };
   };
 }
