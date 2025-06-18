@@ -1,0 +1,9 @@
+theme = "Oxocarbon"
+font-family = "IosevkaTerm Nerd Font Mono"
+font-style-bold = "Bold"
+font-style-italic = "Italic"
+font-style-bold-italic = "Bold Italic"
+font-size = 14
+gtk-titlebar = false
+
+keybind = ctrl+eight=write_scrollback_file:open

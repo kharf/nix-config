@@ -2,8 +2,5 @@
 name = "kharf"
 email = "kevinfritz210@gmail.com"
 
-[ui]
-paginate = "never"
-
 [git]
 subprocess = true

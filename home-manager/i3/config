@@ -61,9 +61,9 @@ for_window [class="^.*"] border pixel 1
 floating_modifier $mod
 
 # start a terminal:
-bindsym $mod+Return exec alacritty --class term
+bindsym $mod+Return exec ghostty
 
-bindsym $mod+u [class="scratchterm"] scratchpad show; move position center
+bindsym $mod+u [class="com.scratchterm"] scratchpad show; move position center
 
 # kill focused window:
 bindsym $mod+c kill
@@ -135,16 +135,22 @@ set $ws9 "9"
 # autostart start applications + bind program to workspace:
 assign [class="term"] $ws1
 for_window [class=term] focus
-for_window [class="scratchterm"] floating enable, resize set 2000 1200, move scratchpad
+for_window [class="com.scratchterm"] floating enable, resize set 2000 1200, move scratchpad
 
 assign [class="(?i)brave"] $ws2
 for_window [class=(?i)brave] focus
+assign [class="(?i)firefox"] $ws2
+for_window [class=(?i)firefox] focus
+assign [class="(?i)zen"] $ws2
+for_window [class=(?i)zen] focus
 
 assign [class="Thunar"] $ws3
 for_window [class=Thunar] focus
 assign [class="DBeaver"] $ws3
 for_window [class=DBeaver] focus
 
+assign [class="dev.zed.Zed"] $ws3
+for_window [class="dev.zed.Zed"] focus
 assign [class="intrepidstudioslauncher.exe"] $ws3
 for_window [class="intrepidstudioslauncher.exe"] focus
 assign [class="(?i)RSI Launcher"] $ws4
@@ -284,7 +290,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # App shortcuts
-bindsym $mod+w exec "/run/current-system/sw/bin/brave"
+bindsym $mod+w exec "/run/current-system/sw/bin/zen"
 bindsym $mod+k exec "/run/current-system/sw/bin/thunar"
 bindsym $mod+s exec "flameshot gui"
 
@@ -333,7 +339,7 @@ bindsym $mod+o exec rofi -show window -line-padding 4 \
                 -show-icons -font "Iosevka Nerd Font Regular 10"
 
 # start scratchpad alacritty on start
-exec alacritty --class scratchterm,scratchterm
+exec ghostty --class=com.scratchterm
 
 # automounting
 exec --no-startup-id udiskie -t &

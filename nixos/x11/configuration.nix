@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ../hardware-configuration.nix
   ];
@@ -44,20 +51,23 @@
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. 
-  system.stateVersion = "23.11"; 
+  # on your system were taken.
+  system.stateVersion = "23.11";
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+  networking.nameservers = [
+    "1.1.1.1#one.one.one.one"
+    "1.0.0.1#one.one.one.one"
+  ];
 
   networking.firewall.enable = true;
   networking.hostName = "kharf";
   networking.firewall.interfaces."podman+".allowedUDPPorts = [ 53 ];
   # in k8s pod to pod communication is expected to go through iptables
   boot.kernel.sysctl = {
-    "net.bridge.bridge-nf-call-iptables"  = 1;
-    "net.ipv4.ip_forward"                 = 1;
+    "net.bridge.bridge-nf-call-iptables" = 1;
+    "net.ipv4.ip_forward" = 1;
     "net.bridge.bridge-nf-call-ip6tables" = 1;
   };
 
@@ -91,11 +101,25 @@
   # rootless podman
   # disable cgroup v1
   # disable PP_OVERDRIVE_MASK, PP_GFXOFF_MASK, and PP_STUTTER_MODE to avoid complete system freezes
-  boot.kernelParams = [ "cgroup_no_v1=all" "systemd.unified_cgroup_hierarchy=1" "amdgpu.ppfeaturemask=0xfffd3fff"];
+  boot.kernelParams = [
+    "cgroup_no_v1=all"
+    "systemd.unified_cgroup_hierarchy=1"
+    "amdgpu.ppfeaturemask=0xfffd3fff"
+  ];
   # bpf programs need higher memlock
   security.pam.loginLimits = [
-    { domain = "*"; item = "memlock"; type = "-"; value = "unlimited"; }
-    { domain = "*"; item = "nofile"; type = "-"; value = "1048576"; }
+    {
+      domain = "*";
+      item = "memlock";
+      type = "-";
+      value = "unlimited";
+    }
+    {
+      domain = "*";
+      item = "nofile";
+      type = "-";
+      value = "1048576";
+    }
   ];
 
   # Swap
@@ -104,7 +128,7 @@
     memoryPercent = 100;
   };
 
-   # Sound
+  # Sound
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -136,7 +160,6 @@
   services.displayManager = {
     defaultSession = "none+i3";
   };
-  
 
   # X
   services.xserver = {
@@ -179,7 +202,11 @@
   users.users.kharf = {
     isNormalUser = true;
     description = "kharf";
-    extraGroups = [ "networkmanager" "wheel" "audio" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+    ];
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -198,15 +225,15 @@
     };
   };
   security.sudo.extraRules = [
-  {
-    users = [ "kharf" ];
-    commands = [
-      {
-       command = "/run/current-system/sw/bin/podman";
-       options= [ "NOPASSWD" ];
-      }
-    ];
-  }
+    {
+      users = [ "kharf" ];
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/podman";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
   ];
 
   # Credentials
@@ -236,109 +263,117 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     # environments
-     prod-shell
-     dev-shell
-     # terminal
-     unstable.alacritty
-     unstable.starship
-     unstable.helix
-     unstable.fastfetch
-     xclip
-     unstable.zoxide
-     bc
-     # browser
-     brave
-     # cloud cli
-     unstable.kubectl
-     unstable.kubectx
-     unstable.kubent
-     unstable.k9s
-     unstable.fluxcd
-     unstable.kubernetes-helm
-     unstable.kind
-     unstable.cilium-cli
-     unstable.minikube
-     local.navecd
-     unstable.trivy
-     unstable.kube-bench
-     unstable.cmctl
-     (unstable.google-cloud-sdk.withExtraComponents [unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin])
-     unstable.terraform-ls
-     unstable.tenv
-     # development
-     unstable.go_1_23
-     unstable.gopls
-     unstable.golangci-lint
-     unstable.golangci-lint-langserver
-     unstable.golines
-     unstable.delve
-     unstable.goreleaser
-     unstable.cue
-     local.dagger
-     checkov
-     unstable.gnumake
-     unstable.nil
-     unstable.sops
-     unstable.httpie
-     unstable.hey
-     unstable.marksman
-     unstable.crane
-     unstable.openssl
-     unstable.dig
-     unstable.traceroute
-     unstable.openssh
-     unstable.gh-dash
-     unstable.gh
-     unstable.yq
-     unstable.jq
-     unstable.jujutsu
-     unstable.helix-gpt
-     unstable.zed-editor
-     # key remap (executed in zshrc)
-     xorg.xmodmap
-     # pictures / videos
-     feh
-     flameshot
-     obs-studio
-     gpu-screen-recorder-gtk
-     # media
-     alsa-utils
-     vlc
-     spotify
-     unstable.vesktop
-     unstable.teamspeak_client
-     # files and dirs
-     xfce.thunar
-     p7zip
-     unstable.nnn
-     udiskie
-     dua
-     unzip
-     libreoffice
-     # privacy
-     protonvpn-gui
-     keepassxc
-     _1password-cli
-     _1password-gui
-     age
-     step-cli
-     # system
-     unstable.btop
-     killall
-     appimage-run
-     tcpdump
-     pciutils
-     # games
-     wineWowPackages.staging
-     winetricks
-     protontricks
-     local.aoc
-     mangohud
-     unstable.lutris
-     unstable.umu-launcher
-     # peripherals
-     vial
+    # environments
+    prod-shell
+    dev-shell
+    # terminal
+    unstable.alacritty
+    unstable.ghostty
+    unstable.starship
+    unstable.helix
+    unstable.fastfetch
+    xclip
+    unstable.zoxide
+    bc
+    # browser
+    inputs.zen-browser.packages.${pkgs.system}.default
+    # cloud cli
+    unstable.kubectl
+    unstable.kubectx
+    unstable.kubent
+    unstable.k9s
+    unstable.fluxcd
+    unstable.kubernetes-helm
+    unstable.kind
+    unstable.cilium-cli
+    unstable.minikube
+    local.navecd
+    unstable.trivy
+    unstable.kube-bench
+    unstable.cmctl
+    (unstable.google-cloud-sdk.withExtraComponents [
+      unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
+    ])
+    unstable.terraform-ls
+    unstable.tenv
+    # development
+    unstable.go_1_24
+    unstable.gopls
+    unstable.golangci-lint
+    unstable.golangci-lint-langserver
+    unstable.golines
+    unstable.delve
+    unstable.goreleaser
+    (unstable.cue.overrideAttrs (_: {
+      version = "master";
+      src = fetchFromGitHub {
+        owner = "cue-lang";
+        repo = "cue";
+        rev = "master";
+        hash = "sha256-pabNtxMHzJeJF9cCZWvX4ycI1ETnijMVN8xZFEuC2Es=";
+      };
+      vendorHash = "sha256-TxBoCrrzDB6Vz/RcoCgwJOyIZFkzjRGV6ccyKH9MwLQ=";
+    }))
+    local.dagger
+    unstable.gnumake
+    unstable.nil
+    unstable.sops
+    unstable.httpie
+    unstable.hey
+    unstable.marksman
+    unstable.crane
+    unstable.openssl
+    unstable.dig
+    unstable.traceroute
+    unstable.openssh
+    unstable.gh-dash
+    unstable.gh
+    unstable.yq
+    unstable.jq
+    unstable.jujutsu
+    unstable.helix-gpt
+    unstable.zed-editor
+    unstable.addlicense
+    # key remap (executed in zshrc)
+    xorg.xmodmap
+    # pictures / videos
+    feh
+    flameshot
+    obs-studio
+    gpu-screen-recorder-gtk
+    # media
+    alsa-utils
+    vlc
+    spotify
+    unstable.discord
+    unstable.teamspeak_client
+    # files and dirs
+    xfce.thunar
+    p7zip
+    unstable.nnn
+    udiskie
+    dua
+    unzip
+    libreoffice
+    # privacy
+    protonvpn-gui
+    keepassxc
+    # system
+    unstable.btop
+    killall
+    appimage-run
+    tcpdump
+    pciutils
+    # games
+    wineWowPackages.stable
+    winetricks
+    protontricks
+    local.aoc
+    mangohud
+    unstable.lutris
+    unstable.umu-launcher
+    # peripherals
+    vial
   ];
 
   programs = {
@@ -347,7 +382,9 @@
       ohMyZsh.enable = true;
     };
     dconf.enable = true;
-    ssh.askPassword = "";
+    ssh = {
+      askPassword = "";
+    };
     nm-applet.enable = true;
     steam = {
       enable = true;
@@ -359,5 +396,19 @@
     gpu-screen-recorder = {
       enable = true;
     };
+    _1password.enable = true;
+    _1password-gui = {
+      enable = true;
+    };
+  };
+
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        zen
+      '';
+      mode = "0755";
+    };
   };
 }
+
