@@ -12,13 +12,12 @@
   appimageContents = pkgs.appimageTools.extractType2 { inherit pname src version; };
 in
 pkgs.appimageTools.wrapType2 {
-  inherit src version;
+  inherit pname src version;
   name = "${pname}-${version}";
 
   extraPkgs = pkgs: [ pkgs.openal ];
 
   extraInstallCommands = ''
-     mv $out/bin/${pname}-${version} $out/bin/${pname}
     install -m 444 -D ${appimageContents}/beyond-all-reason.desktop $out/share/applications/beyond-all-reason.desktop
     install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/0x0/apps/beyond-all-reason.png \
       $out/share/icons/hicolor/0x0/apps/beyond-all-reason.png

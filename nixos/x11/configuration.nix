@@ -246,6 +246,11 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-curses;
+    settings = {
+      default-cache-ttl-ssh = 60 * 60 * 12;
+      max-cache-ttl-ssh = 60 * 60 * 12;
+    };
   };
 
   # Printing
@@ -304,15 +309,17 @@
     unstable.golines
     unstable.delve
     unstable.goreleaser
+    unstable.zig
+    unstable.zls
     (unstable.cue.overrideAttrs (_: {
       version = "master";
       src = fetchFromGitHub {
         owner = "cue-lang";
         repo = "cue";
         rev = "master";
-        hash = "sha256-pabNtxMHzJeJF9cCZWvX4ycI1ETnijMVN8xZFEuC2Es=";
+        hash = "sha256-diUoSKsh5Qg7tsioL1izt8nbL5L66+WVi90DJ7di5R4=";
       };
-      vendorHash = "sha256-TxBoCrrzDB6Vz/RcoCgwJOyIZFkzjRGV6ccyKH9MwLQ=";
+      vendorHash = "sha256-hV5LO9R854YuazzS6VkxoY64h3+JboBgEDRWAoWats8=";
     }))
     local.dagger
     unstable.gnumake
@@ -369,6 +376,7 @@
     winetricks
     protontricks
     local.aoc
+    local.bar
     mangohud
     unstable.lutris
     unstable.umu-launcher
@@ -383,6 +391,7 @@
     };
     dconf.enable = true;
     ssh = {
+      startAgent = false;
       askPassword = "";
     };
     nm-applet.enable = true;

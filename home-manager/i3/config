@@ -133,8 +133,8 @@ set $ws8 "8"
 set $ws9 "9"
 
 # autostart start applications + bind program to workspace:
-assign [class="term"] $ws1
-for_window [class=term] focus
+assign [class="ghostty"] $ws1
+for_window [class="ghostty"] focus
 for_window [class="com.scratchterm"] floating enable, resize set 2000 1200, move scratchpad
 
 assign [class="(?i)brave"] $ws2
@@ -163,6 +163,8 @@ assign [class="(?i)wowclassic.exe"] $ws4
 for_window [class="(?i)wowclassic.exe"] focus
 assign [class="steam_app_1466860"] $ws4
 for_window [class="steam_app_1466860"] focus
+assign [class="Beyond-All-Reason"] $ws4
+for_window [class="Beyond-All-Reason"] focus
 
 assign [class="(?i)discord"] $ws5
 for_window [class="(?i)discord"] focus
