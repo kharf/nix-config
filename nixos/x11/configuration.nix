@@ -13,6 +13,9 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "qtwebengine-5.15.19"
+      ];
     };
   };
 
@@ -280,6 +283,8 @@
     xclip
     unstable.zoxide
     bc
+    unstable.presenterm
+    unstable.mermaid-cli
     # browser
     inputs.zen-browser.packages.${pkgs.system}.default
     # cloud cli
@@ -317,9 +322,9 @@
         owner = "cue-lang";
         repo = "cue";
         rev = "master";
-        hash = "sha256-diUoSKsh5Qg7tsioL1izt8nbL5L66+WVi90DJ7di5R4=";
+        hash = "sha256-KxrmbbUh2IH/A7tSeC4Vg7kh0LLQwqaowToj5CLmT4g=";
       };
-      vendorHash = "sha256-hV5LO9R854YuazzS6VkxoY64h3+JboBgEDRWAoWats8=";
+      vendorHash = "sha256-41YjukhiqNMrFGFuNKUewVYFQsLODDEdhuMg2GyzPsI=";
     }))
     local.dagger
     unstable.gnumake
@@ -353,6 +358,7 @@
     vlc
     spotify
     unstable.discord
+    unstable.vesktop
     unstable.teamspeak_client
     # files and dirs
     xfce.thunar
@@ -365,6 +371,7 @@
     # privacy
     protonvpn-gui
     keepassxc
+    unstable.proton-pass
     # system
     unstable.btop
     killall
