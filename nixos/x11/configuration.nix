@@ -13,9 +13,6 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [
-        "qtwebengine-5.15.19"
-      ];
     };
   };
 
@@ -285,6 +282,7 @@
     bc
     unstable.presenterm
     unstable.mermaid-cli
+    unstable.cosign
     # browser
     inputs.zen-browser.packages.${pkgs.system}.default
     # cloud cli
@@ -359,7 +357,6 @@
     spotify
     unstable.discord
     unstable.vesktop
-    unstable.teamspeak_client
     # files and dirs
     xfce.thunar
     p7zip

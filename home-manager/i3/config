@@ -61,7 +61,7 @@ for_window [class="^.*"] border pixel 1
 floating_modifier $mod
 
 # start a terminal:
-bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec alacritty
 
 bindsym $mod+u [class="com.scratchterm"] scratchpad show; move position center
 
@@ -135,6 +135,8 @@ set $ws9 "9"
 # autostart start applications + bind program to workspace:
 assign [class="ghostty"] $ws1
 for_window [class="ghostty"] focus
+assign [class="alacritty"] $ws1
+for_window [class="alacritty"] focus
 for_window [class="com.scratchterm"] floating enable, resize set 2000 1200, move scratchpad
 
 assign [class="(?i)brave"] $ws2
@@ -343,7 +345,7 @@ bindsym $mod+o exec rofi -show window -line-padding 4 \
                 -show-icons -font "Iosevka Nerd Font Regular 10"
 
 # start scratchpad alacritty on start
-exec ghostty --class=com.scratchterm
+exec alacritty --class=com.scratchterm
 
 # automounting
 exec --no-startup-id udiskie -t &
