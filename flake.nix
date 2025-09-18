@@ -8,23 +8,19 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:nix-community/stylix/release-25.05";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, stylix, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#hostname'
     nixosConfigurations = {
-      x = nixpkgs.lib.nixosSystem {
+      pc = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [
-          ./nixos/x11/configuration.nix
-          (import ./overlays)
-         ];
-      };
-      wayland = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [
-          ./nixos/wayland/configuration.nix
+          stylix.nixosModules.stylix
+          ./nixos/pc/configuration.nix
           (import ./overlays)
          ];
       };
@@ -35,7 +31,9 @@
       "kharf@kharf" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./home-manager/home.nix ];
+        modules = [
+          ./home-manager/home.nix
+        ];
       };
     };
   };

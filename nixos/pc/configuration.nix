@@ -57,11 +57,12 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.nameservers = [
-    "1.1.1.1#one.one.one.one"
-    "1.0.0.1#one.one.one.one"
+    "8.8.8.8"
+    "8.8.4.4"
   ];
 
   networking.firewall.enable = true;
+  networking.firewall.trustedInterfaces = ["virbr0"];
   networking.hostName = "kharf";
   networking.firewall.interfaces."podman+".allowedUDPPorts = [ 53 ];
   # in k8s pod to pod communication is expected to go through iptables
@@ -156,9 +157,43 @@
     ];
   };
 
+  stylix = {
+    enable = true;
+    polarity = "dark";
+    base16Scheme = {
+      slug = "oxocarbon-dark";
+      name = "Oxocarbon Dark";
+      author = "shaunsingh/IBM";
+      palette = {
+        base00 = "161616";
+        base01 = "262626";
+        base02 = "393939";
+        base03 = "525252";
+        base04 = "dde1e6";
+        base05 = "f2f4f8";
+        base06 = "ffffff";
+        base07 = "08bdba";
+        base08 = "3ddbd9";
+        base09 = "78a9ff";
+        base0A = "ee5396";
+        base0B = "33b1ff";
+        base0C = "ff7eb6";
+        base0D = "42be65";
+        base0E = "be95ff";
+        base0F = "82cfff";
+      };
+    };
+    fonts = with pkgs; {
+      monospace = {
+        package = unstable.nerd-fonts.iosevka;
+        name = "Iosevka Nerd Font Mono";
+      };
+    };
+  };
+
   # DM
   services.displayManager = {
-    defaultSession = "none+i3";
+    defaultSession = "niri";
   };
 
   # X
@@ -173,7 +208,7 @@
     autoRepeatInterval = 30;
 
     displayManager = {
-      lightdm.enable = true;
+      gdm.enable = true;
     };
 
     desktopManager = {
@@ -199,16 +234,20 @@
   };
 
   # Provision user
-  users.users.kharf = {
-    isNormalUser = true;
-    description = "kharf";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "audio"
-    ];
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.kharf = {
+        isNormalUser = true;
+        description = "kharf";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+          "audio"
+          "libvirtd"
+        ];
+      };
+    groups.libvirtd.members = ["kharf"];
   };
-  users.defaultUserShell = pkgs.zsh;
 
   # Fonts
   fonts.packages = with pkgs; [
@@ -223,7 +262,12 @@
       enable = true;
       dockerCompat = true;
     };
+    libvirtd = {
+      enable = true;
+    };
+    spiceUSBRedirection.enable = true;
   };
+
   security.sudo.extraRules = [
     {
       users = [ "kharf" ];
@@ -268,10 +312,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # environments
     prod-shell
     dev-shell
-    # terminal
+    quickemu
     unstable.alacritty
     unstable.ghostty
     unstable.starship
@@ -283,9 +326,7 @@
     unstable.presenterm
     unstable.mermaid-cli
     unstable.cosign
-    # browser
     inputs.zen-browser.packages.${pkgs.system}.default
-    # cloud cli
     unstable.kubectl
     unstable.kubectx
     unstable.kubent
@@ -304,12 +345,10 @@
     ])
     unstable.terraform-ls
     unstable.tenv
-    # development
+    unstable.docker-compose
     unstable.go_1_24
     unstable.gopls
     unstable.golangci-lint
-    unstable.golangci-lint-langserver
-    unstable.golines
     unstable.delve
     unstable.goreleaser
     unstable.zig
@@ -320,7 +359,7 @@
         owner = "cue-lang";
         repo = "cue";
         rev = "master";
-        hash = "sha256-KxrmbbUh2IH/A7tSeC4Vg7kh0LLQwqaowToj5CLmT4g=";
+        hash = "sha256-iLajQsOb1i/5BJ1tFPgzTTJ1t/p6WLRNnDLIN2fkJTA=";
       };
       vendorHash = "sha256-41YjukhiqNMrFGFuNKUewVYFQsLODDEdhuMg2GyzPsI=";
     }))
@@ -344,38 +383,31 @@
     unstable.helix-gpt
     unstable.zed-editor
     unstable.addlicense
-    # key remap (executed in zshrc)
     xorg.xmodmap
-    # pictures / videos
     feh
     flameshot
     obs-studio
     gpu-screen-recorder-gtk
-    # media
     alsa-utils
     vlc
     spotify
     unstable.discord
     unstable.vesktop
-    # files and dirs
-    xfce.thunar
+    nautilus
     p7zip
     unstable.nnn
     udiskie
     dua
     unzip
     libreoffice
-    # privacy
     protonvpn-gui
     keepassxc
     unstable.proton-pass
-    # system
     unstable.btop
     killall
     appimage-run
     tcpdump
     pciutils
-    # games
     wineWowPackages.stable
     winetricks
     protontricks
@@ -384,8 +416,16 @@
     mangohud
     unstable.lutris
     unstable.umu-launcher
-    # peripherals
     vial
+    usbutils
+    dnsmasq
+    difftastic
+    # wayland
+    fuzzel
+    mako
+    swaybg
+    swaylock
+    xwayland-satellite
   ];
 
   programs = {
@@ -413,6 +453,9 @@
     _1password-gui = {
       enable = true;
     };
+    virt-manager.enable = true;
+    niri.enable = true;
+    waybar.enable = true;
   };
 
   environment.etc = {

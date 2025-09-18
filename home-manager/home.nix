@@ -3,7 +3,7 @@
 { pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
-    ./gtk.nix
+     ./gtk.nix
   ];
 
   nixpkgs = {
@@ -33,6 +33,11 @@
     };
     file = {
       ".config/i3/config".source = ./i3/config;
+      ".config/niri/config.kdl".source = ./niri/config.kdl;
+      ".config/fuzzel/fuzzel.ini".source = ./fuzzel/fuzzel.ini;
+      ".config/btop/themes/oxocarbon_dark.theme".source = ./btop/oxocarbon_dark.theme;
+      ".config/waybar/config".source = ./waybar/config;
+      ".config/waybar/style.css".source = ./waybar/style.css;
       ".config/i3/i3-lock-screen-scaled.png".source = ./i3/i3-lock-screen-scaled.png;
       ".config/i3status-rust/config.toml".source = ./i3status-rust/config.toml;
       ".alacritty.toml".source = ./alacritty/alacritty.toml;
@@ -61,7 +66,7 @@
 
     git = {
       enable = true;
-      userName = "kharf";
+      userName = "Kevin Fritz";
       userEmail = "kevinfritz210@gmail.com";
       extraConfig = {
         url = {

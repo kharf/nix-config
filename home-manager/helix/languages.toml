@@ -6,9 +6,8 @@ file-types = ["go"]
 roots = ["go.work", "go.mod"]
 auto-format = true
 comment-token = "//"
-language-servers = ["gopls", "golangci-lint-lsp"]
+language-servers = ["gopls"]
 indent = { tab-width = 4, unit = "\t" }
-formatter = { command = "golines" }
 
 [[language]]
 name = "cue"
@@ -28,9 +27,3 @@ language-servers = ["terraform-ls"]
 [language-server.cuelsp]
 command = "cue"
 args = ["lsp"]
-
-[language-server.golangci-lint-lsp]
-command = "golangci-lint-langserver"
-
-[language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false", "--issues-exit-code=1"]

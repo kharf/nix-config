@@ -12,7 +12,7 @@ background = "#161616"
 foreground = "#f2f4f8"
 
 [font]
-size = 13
+size = 15
 
 [font.bold]
 family = "IosevkaTerm Nerd Font Mono"
@@ -34,3 +34,6 @@ style = "Regular"
 bindings = [
    { key = "8", mods = "Control", action = "ToggleViMode" }
 ]
+
+[window]
+decorations = "None"
