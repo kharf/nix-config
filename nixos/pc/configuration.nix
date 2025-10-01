@@ -426,6 +426,7 @@
     swaybg
     swaylock
     xwayland-satellite
+    wl-clipboard
   ];
 
   programs = {

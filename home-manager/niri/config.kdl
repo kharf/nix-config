@@ -155,7 +155,7 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#08bdba"
+        active-color "#ee5396"
 
         // Color of the ring on inactive monitors.
         //
@@ -331,7 +331,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 10
     clip-to-geometry true
 }
 
@@ -562,8 +562,8 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
+    Mod+Shift+S { screenshot; }
+    Mod+S { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
