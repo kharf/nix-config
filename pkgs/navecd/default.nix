@@ -1,11 +1,11 @@
 { pkgs, stdenv, lib, installShellFiles }:
 pkgs.stdenv.mkDerivation rec {
   pname = "navecd";
-  version = "v0.26.11";
+  version = "v0.27.3";
   src = {
     x86_64-linux = pkgs.fetchurl {
       url = "https://github.com/kharf/${pname}/releases/download/${version}/${pname}_linux_x86_64.tar.gz";
-      hash = "sha256-rofgBiNrQRLR6TyisTBZqwajfGIrm7moQyklMsfCJ78=";
+      hash = "sha256-m/KoQB0JaKjiRGqEwP3kQ2FvbX9msS/E+s5zS0UGPfg=";
     };
   }.${stdenv.hostPlatform.system} or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
 

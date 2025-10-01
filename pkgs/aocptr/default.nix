@@ -5,18 +5,10 @@
   writeShellScriptBin,
   gamemode,
   proton-ge-bin,
-  pname ? "ashes-of-creation",
+  pname ? "ashes-of-creation-ptr",
   location ? "$HOME/Games/ashes-of-creation",
   pkgs,
 }: let
-  version = "0.3.328.24463";
-
-  src = pkgs.fetchurl {
-    url = "https://ff-intrepid-launcher.s3.us-east-2.amazonaws.com/b9p7a3j6-6cw3-nz5s-km5y-r9w8u2x5cb4d/IntrepidInstaller-${version}.exe";
-    name = "IntrepidInstaller-${version}.exe";
-    hash = "sha256-ylzfFND3jCykEc9GleOg+lD8dkfJTZhXfUoB0RXtAUg=";
-  };
-
   script = writeShellScriptBin pname ''
       export WINEARCH="win64"
       export WINEPREFIX="${location}"
@@ -24,14 +16,9 @@
       export PROTONPATH="${proton-ge-bin.steamcompattool}/"
       export STORE="none"
       export PROTON_VERBS="run"
-      if [ ! -d "${location}" ]; then
-        # install launcher
-        umu-run ${src}
-      else
-        GAME="${location}/drive_c/Program Files/Intrepid Studios/AshesOfCreation/PROD/AOCClient.exe"
-        LAUNCHER_PORT="$(netstat -ulpn 2>/dev/null | grep wineserv | awk '{split($4, a , ":"); print a[2]}')"
-        ${gamemode}/bin/gamemoderun umu-run "$GAME" LauncherTetherPort=$LAUNCHER_PORT -NOSPLASH -USEEOS=0
-      fi
+      GAME="${location}/drive_c/Program Files/Intrepid Studios/AshesOfCreation/PTR/AOCClient.exe"
+      LAUNCHER_PORT="$(netstat -ulpn 2>/dev/null | grep wineserv | awk '{split($4, a , ":"); print a[2]}')"
+      ${gamemode}/bin/gamemoderun umu-run "$GAME" LauncherTetherPort=$LAUNCHER_PORT -NOSPLASH -USEEOS=0
   '';
 
   icon = pkgs.fetchurl {
@@ -44,7 +31,7 @@
     exec = "${script}/bin/${pname} %U";
     inherit icon;
     comment = "AoC";
-    desktopName = "Ashes of Creation";
+    desktopName = "Ashes of Creation PTR";
     categories = ["Game"];
     mimeTypes = ["application/x-aoc"];
   };

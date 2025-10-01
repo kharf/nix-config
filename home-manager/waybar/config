@@ -116,7 +116,7 @@
 	},
 	"memory": {
 		"interval": 5,
-		"format": "Mem {}%"
+		"format": "Mem {used:0.1f}/{total:0.1f} GB ({}%)"
 	},
 	"cpu": {
 		"interval": 5,
@@ -124,7 +124,8 @@
 	},
 	"disk": {
 		"interval": 5,
-		"format": "Disk {percentage_used:2}%",
+		"format": "Disk {specific_free:0.2f}/{specific_total:0.2f} GB ({percentage_used:2}%)",
+		"unit": "GB",
 		"path": "/"
 	},
 	"tray": {

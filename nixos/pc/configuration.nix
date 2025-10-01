@@ -153,7 +153,8 @@
       qmk-udev-rules
       qmk_hid
       via
-      vial
+      unstable.vial
+      rivalcfg
     ];
   };
 
@@ -196,16 +197,8 @@
     defaultSession = "niri";
   };
 
-  # X
   services.xserver = {
     enable = true;
-    # Keyboard layout
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-    autoRepeatDelay = 300;
-    autoRepeatInterval = 30;
 
     displayManager = {
       gdm.enable = true;
@@ -213,16 +206,6 @@
 
     desktopManager = {
       xterm.enable = false;
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [
-        i3lock
-        rofi
-        i3status-rust
-      ];
     };
   };
 
@@ -244,6 +227,7 @@
           "wheel"
           "audio"
           "libvirtd"
+          "podman"
         ];
       };
     groups.libvirtd.members = ["kharf"];
@@ -314,19 +298,15 @@
   environment.systemPackages = with pkgs; [
     prod-shell
     dev-shell
-    quickemu
     unstable.alacritty
-    unstable.ghostty
     unstable.starship
     unstable.helix
     unstable.fastfetch
-    xclip
     unstable.zoxide
     bc
     unstable.presenterm
-    unstable.mermaid-cli
-    unstable.cosign
-    inputs.zen-browser.packages.${pkgs.system}.default
+    cosign
+    unstable.brave
     unstable.kubectl
     unstable.kubectx
     unstable.kubent
@@ -335,18 +315,16 @@
     unstable.kubernetes-helm
     unstable.kind
     unstable.cilium-cli
-    unstable.minikube
     local.navecd
     unstable.trivy
     unstable.kube-bench
-    unstable.cmctl
     (unstable.google-cloud-sdk.withExtraComponents [
       unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
     ])
     unstable.terraform-ls
     unstable.tenv
     unstable.docker-compose
-    unstable.go_1_24
+    unstable.go
     unstable.gopls
     unstable.golangci-lint
     unstable.delve
@@ -359,9 +337,9 @@
         owner = "cue-lang";
         repo = "cue";
         rev = "master";
-        hash = "sha256-iLajQsOb1i/5BJ1tFPgzTTJ1t/p6WLRNnDLIN2fkJTA=";
+        hash = "sha256-1XGoSFXrKYLwN0CmJvcPA5i9Az9JLESUJTVMxL482I8=";
       };
-      vendorHash = "sha256-41YjukhiqNMrFGFuNKUewVYFQsLODDEdhuMg2GyzPsI=";
+      vendorHash = "sha256-ivFw62+pg503EEpRsdGSQrFNah87RTUrRXUSPZMFLG4=";
     }))
     local.dagger
     unstable.gnumake
@@ -380,12 +358,8 @@
     unstable.yq
     unstable.jq
     unstable.jujutsu
-    unstable.helix-gpt
     unstable.zed-editor
     unstable.addlicense
-    xorg.xmodmap
-    feh
-    flameshot
     obs-studio
     gpu-screen-recorder-gtk
     alsa-utils
@@ -393,9 +367,8 @@
     spotify
     unstable.discord
     unstable.vesktop
-    nautilus
     p7zip
-    unstable.nnn
+    unstable.yazi
     udiskie
     dua
     unzip
@@ -403,36 +376,42 @@
     protonvpn-gui
     keepassxc
     unstable.proton-pass
-    unstable.btop
+    unstable.btop-rocm
     killall
     appimage-run
     tcpdump
     pciutils
-    wineWowPackages.stable
+    wineWowPackages.staging
     winetricks
     protontricks
-    local.aoc
-    local.bar
     mangohud
-    unstable.lutris
+    lutris
     unstable.umu-launcher
-    vial
+    local.aoc
+    local.aocptr
+    local.aoclauncher
+    local.bellum
+    unstable.vial
     usbutils
     dnsmasq
     difftastic
-    # wayland
     fuzzel
     mako
     swaybg
     swaylock
     xwayland-satellite
     wl-clipboard
+    rivalcfg
+    gamescope
   ];
 
   programs = {
     zsh = {
       enable = true;
       ohMyZsh.enable = true;
+    };
+    thunar = {
+      enable = true;
     };
     dconf.enable = true;
     ssh = {
@@ -450,22 +429,8 @@
     gpu-screen-recorder = {
       enable = true;
     };
-    _1password.enable = true;
-    _1password-gui = {
-      enable = true;
-    };
-    virt-manager.enable = true;
     niri.enable = true;
     waybar.enable = true;
-  };
-
-  environment.etc = {
-    "1password/custom_allowed_browsers" = {
-      text = ''
-        zen
-      '';
-      mode = "0755";
-    };
   };
 }
 
