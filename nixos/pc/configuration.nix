@@ -195,14 +195,11 @@
   # DM
   services.displayManager = {
     defaultSession = "niri";
+    gdm.enable = true;
   };
 
   services.xserver = {
     enable = true;
-
-    displayManager = {
-      gdm.enable = true;
-    };
 
     desktopManager = {
       xterm.enable = false;
@@ -403,15 +400,13 @@
     wl-clipboard
     rivalcfg
     gamescope
+    nautilus
   ];
 
   programs = {
     zsh = {
       enable = true;
       ohMyZsh.enable = true;
-    };
-    thunar = {
-      enable = true;
     };
     dconf.enable = true;
     ssh = {
