@@ -48,6 +48,7 @@
       ".config/k9s/skins/oxocarbon.yaml".source = ./k9s/skins/oxocarbon.yaml;
       ".config/k9s/config.yaml".source = ./k9s/config.yaml;
       ".config/jj/config.toml".source = ./jj/config.toml;
+      ".config/opencode/opencode.json".source = ./opencode/opencode.json;
       ".background-image".source = ./wallpaper/nixos-wallpaper.png;
     };
   };
@@ -64,13 +65,15 @@
 
     git = {
       enable = true;
-      userName = "Kevin Fritz";
-      userEmail = "kevinfritz210@gmail.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Kevin Fritz";
+          email = "kevinfritz210@gmail.com";
+        };
         url = {
           "ssh://git@github.com/mediamarktsaturn" = {
             insteadOf = "https://github.com/mediamarktsaturn";
-         };
+          };
         };
         commit.gpgsign = true;
       };

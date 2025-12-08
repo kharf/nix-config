@@ -33,7 +33,7 @@
   };
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Bootloader.
   boot.loader = {
@@ -98,6 +98,10 @@
     "vm.max_map_count" = 16777216;
     "fs.file-max" = 524288;
   };
+
+  # lact
+  services.lact.enable = true;
+  hardware.amdgpu.overdrive.enable = true;
 
   # rootless podman
   # disable cgroup v1
@@ -225,6 +229,7 @@
           "audio"
           "libvirtd"
           "podman"
+          "openrazer"
         ];
       };
     groups.libvirtd.members = ["kharf"];
@@ -290,6 +295,8 @@
   # This is useful to execute shebangs on NixOS that assume hard coded locations in locations like /bin or /usr/bin etc
   services.envfs.enable = true;
 
+  hardware.openrazer.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -315,8 +322,8 @@
     local.navecd
     unstable.trivy
     unstable.kube-bench
-    (unstable.google-cloud-sdk.withExtraComponents [
-      unstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
+    (google-cloud-sdk.withExtraComponents [
+      google-cloud-sdk.components.gke-gcloud-auth-plugin
     ])
     unstable.terraform-ls
     unstable.tenv
@@ -326,18 +333,9 @@
     unstable.golangci-lint
     unstable.delve
     unstable.goreleaser
-    unstable.zig
-    unstable.zls
-    (unstable.cue.overrideAttrs (_: {
-      version = "master";
-      src = fetchFromGitHub {
-        owner = "cue-lang";
-        repo = "cue";
-        rev = "master";
-        hash = "sha256-1XGoSFXrKYLwN0CmJvcPA5i9Az9JLESUJTVMxL482I8=";
-      };
-      vendorHash = "sha256-ivFw62+pg503EEpRsdGSQrFNah87RTUrRXUSPZMFLG4=";
-    }))
+    zig
+    zls
+    unstable.cue
     local.dagger
     unstable.gnumake
     unstable.nil
@@ -362,15 +360,16 @@
     alsa-utils
     vlc
     spotify
-    unstable.discord
-    unstable.vesktop
+    discord
+    vesktop
     p7zip
     unstable.yazi
     udiskie
     dua
     unzip
     libreoffice
-    protonvpn-gui
+    unstable.proton-vpn-cli
+    unstable.protonvpn-gui
     keepassxc
     unstable.proton-pass
     unstable.btop-rocm
@@ -384,9 +383,6 @@
     mangohud
     lutris
     unstable.umu-launcher
-    local.aoc
-    local.aocptr
-    local.aoclauncher
     local.bellum
     unstable.vial
     usbutils
@@ -398,10 +394,14 @@
     swaylock
     xwayland-satellite
     wl-clipboard
-    rivalcfg
     gamescope
     nautilus
+    openrazer-daemon
+    polychromatic
+    unstable.opencode
+    unstable.glow
   ];
+
 
   programs = {
     zsh = {
@@ -417,7 +417,7 @@
     steam = {
       enable = true;
       extraCompatPackages = with pkgs; [
-        proton-ge-bin
+        unstable.proton-ge-bin
       ];
     };
     gamemode.enable = true;

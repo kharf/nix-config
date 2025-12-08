@@ -292,6 +292,16 @@ window-rule {
     open-floating true
 }
 
+// Open the Chrome extension picture-in-picture player as floating by default.
+window-rule {
+    // This rule matches windows with "picture.in.picture" in their title
+    // (case insensitive) and forces them to open as a floating window.
+    match title="(?i)picture.in.picture"
+    open-floating true
+
+    default-floating-position x=100 y=200 relative-to="top-right"
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
