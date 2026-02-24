@@ -1,6 +1,13 @@
 [user]
 name = "kharf"
-email = "kevinfritz210@gmail.com"
+email = "khar1@proton.me"
+
+# Configure signing backend as before, but lazily signing only on push.
+[signing]
+behavior = "drop"
+backend = "ssh"
+key = "/home/kharf/.ssh/signing.pub"
 
 [git]
+sign-on-push = true
 subprocess = true

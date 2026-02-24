@@ -46,6 +46,7 @@
       efiSupport = true;
       device = "nodev";
       useOSProber = true;
+      configurationLimit = 10;
     };
   };
 
@@ -56,6 +57,17 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # use iwd instead of wpa_supplicant (iwd seemed to be more stable)
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
+  networking.wireless.iwd.settings = {
+    IPv6 = {
+      Enabled = true;
+    };
+    Settings = {
+      AutoConnect = true;
+    };
+  };
   networking.nameservers = [
     "8.8.8.8"
     "8.8.4.4"
@@ -353,7 +365,6 @@
     unstable.yq
     unstable.jq
     unstable.jujutsu
-    unstable.zed-editor
     unstable.addlicense
     obs-studio
     gpu-screen-recorder-gtk
@@ -384,10 +395,12 @@
     lutris
     unstable.umu-launcher
     local.bellum
+    local.bar
     unstable.vial
     usbutils
     dnsmasq
     difftastic
+    dyff
     fuzzel
     mako
     swaybg
@@ -395,11 +408,12 @@
     xwayland-satellite
     wl-clipboard
     gamescope
-    nautilus
+    kdePackages.dolphin
     openrazer-daemon
     polychromatic
     unstable.opencode
     unstable.glow
+    unstable.gotestsum
   ];
 
 

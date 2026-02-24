@@ -53,10 +53,6 @@
     };
   };
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
-
   # Enable home-manager and git
   programs = {
     home-manager = {
@@ -68,14 +64,13 @@
       settings = {
         user = {
           name = "Kevin Fritz";
-          email = "kevinfritz210@gmail.com";
+          email = "kharf1@proton.me";
         };
         url = {
           "ssh://git@github.com/mediamarktsaturn" = {
             insteadOf = "https://github.com/mediamarktsaturn";
           };
         };
-        commit.gpgsign = true;
       };
     };
   };
