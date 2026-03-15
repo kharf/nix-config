@@ -1,6 +1,6 @@
 [user]
 name = "kharf"
-email = "khar1@proton.me"
+email = "kharf1@proton.me"
 
 # Configure signing backend as before, but lazily signing only on push.
 [signing]
