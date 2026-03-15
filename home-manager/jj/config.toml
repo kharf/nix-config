@@ -11,3 +11,8 @@ key = "/home/kharf/.ssh/signing.pub"
 [git]
 sign-on-push = true
 subprocess = true
+
+[templates]
+commit_trailers = '''
+format_signed_off_by_trailer(self)
+'''
