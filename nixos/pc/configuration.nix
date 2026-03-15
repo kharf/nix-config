@@ -413,7 +413,6 @@
     polychromatic
     unstable.opencode
     unstable.glow
-    unstable.gotestsum
   ];
 
 
