@@ -3,21 +3,7 @@
 { pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
-     ./gtk.nix
   ];
-
-  nixpkgs = {
-    # You can add overlays here
-    overlays = [
-    ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = (_: true);
-    };
-  };
 
   home = {
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

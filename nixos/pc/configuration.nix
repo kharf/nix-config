@@ -177,6 +177,11 @@
   stylix = {
     enable = true;
     polarity = "dark";
+    icons = {
+      enable = true;
+      dark = "Dracula";
+      package = pkgs.dracula-icon-theme;
+    };
     base16Scheme = {
       slug = "oxocarbon-dark";
       name = "Oxocarbon Dark";

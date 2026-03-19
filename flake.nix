@@ -18,6 +18,14 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [
           stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.kharf = import ./home-manager/home.nix;
+            };
+          }
           ./nixos/pc/configuration.nix
           (import ./overlays)
          ];
