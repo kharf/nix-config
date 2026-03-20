@@ -57,21 +57,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  # use iwd instead of wpa_supplicant (iwd seemed to be more stable)
-  networking.wireless.iwd.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
-  networking.wireless.iwd.settings = {
-    IPv6 = {
-      Enabled = true;
-    };
-    Settings = {
-      AutoConnect = true;
-    };
-  };
-  networking.nameservers = [
-    "8.8.8.8"
-    "8.8.4.4"
-  ];
 
   networking.firewall.enable = true;
   networking.firewall.trustedInterfaces = ["virbr0"];
@@ -385,7 +370,7 @@
     unzip
     libreoffice
     unstable.proton-vpn-cli
-    unstable.protonvpn-gui
+    unstable.proton-vpn
     keepassxc
     unstable.proton-pass
     unstable.btop-rocm
@@ -418,6 +403,9 @@
     polychromatic
     unstable.opencode
     unstable.glow
+    unstable.gotestsum
+    unstable.bun
+    unstable.kdePackages.okular
   ];
 
 

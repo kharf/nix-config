@@ -25,7 +25,6 @@
       ".config/waybar/style.css".source = ./waybar/style.css;
       ".config/mako/config".source = ./mako/config;
       ".alacritty.toml".source = ./alacritty/alacritty.toml;
-      ".config/ghostty/config".source = ./ghostty/config;
       ".config/starship.toml".source = ./starship/starship.toml;
       ".zshrc".source = ./zsh/zshrc;
       ".config/helix/config.toml".source = ./helix/config.toml;
