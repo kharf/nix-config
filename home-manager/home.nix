@@ -34,6 +34,7 @@
       ".config/k9s/config.yaml".source = ./k9s/config.yaml;
       ".config/jj/config.toml".source = ./jj/config.toml;
       ".config/opencode/opencode.json".source = ./opencode/opencode.json;
+      ".config/opencode/agents".source = ./opencode/agents;
       ".background-image".source = ./wallpaper/nixos-wallpaper.png;
     };
   };

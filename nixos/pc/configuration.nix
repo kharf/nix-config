@@ -356,7 +356,6 @@
     unstable.jq
     unstable.jujutsu
     unstable.addlicense
-    obs-studio
     gpu-screen-recorder-gtk
     alsa-utils
     vlc
@@ -406,8 +405,9 @@
     unstable.gotestsum
     unstable.bun
     unstable.kdePackages.okular
+    unstable.kyverno
+    unstable.nautilus
   ];
-
 
   programs = {
     zsh = {
@@ -430,8 +430,14 @@
     gpu-screen-recorder = {
       enable = true;
     };
-    niri.enable = true;
+    niri = with pkgs; {
+      enable = true;
+      package = unstable.niri;
+    };
     waybar.enable = true;
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true; 
+    };
   };
 }
-
