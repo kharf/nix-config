@@ -1,7 +1,7 @@
 ---
 description: Writes and maintains project documentation
 mode: subagent
-model: github-copilot/grok-code-fast-1
+model: github-copilot/claude-sonnet-4.6
 tools:
   bash: false
 ---

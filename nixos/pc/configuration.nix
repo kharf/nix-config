@@ -439,5 +439,9 @@
       enable = true;
       enableVirtualCamera = true; 
     };
+    bazecor = with pkgs; {
+      enable = true;
+      package = unstable.bazecor;
+    };
   };
 }

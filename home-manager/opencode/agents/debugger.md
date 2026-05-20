@@ -1,7 +1,7 @@
 ---
 description: Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encountering any issues.
 mode: subagent
-model: github-copilot/grok-code-fast-1
+model: github-copilot/claude-sonnet-4.6
 temperature: 0.3
 tools:
   write: true
