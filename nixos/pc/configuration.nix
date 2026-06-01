@@ -159,45 +159,6 @@
     ];
   };
 
-  stylix = {
-    enable = true;
-    polarity = "dark";
-    icons = {
-      enable = true;
-      dark = "Dracula";
-      package = pkgs.dracula-icon-theme;
-    };
-    base16Scheme = {
-      slug = "oxocarbon-dark";
-      name = "Oxocarbon Dark";
-      author = "shaunsingh/IBM";
-      palette = {
-        base00 = "161616";
-        base01 = "262626";
-        base02 = "393939";
-        base03 = "525252";
-        base04 = "dde1e6";
-        base05 = "f2f4f8";
-        base06 = "ffffff";
-        base07 = "08bdba";
-        base08 = "3ddbd9";
-        base09 = "78a9ff";
-        base0A = "ee5396";
-        base0B = "33b1ff";
-        base0C = "ff7eb6";
-        base0D = "42be65";
-        base0E = "be95ff";
-        base0F = "82cfff";
-      };
-    };
-    fonts = with pkgs; {
-      monospace = {
-        package = unstable.nerd-fonts.iosevka;
-        name = "Iosevka Nerd Font Mono";
-      };
-    };
-  };
-
   # DM
   services.displayManager = {
     defaultSession = "niri";
@@ -313,6 +274,7 @@
     unstable.presenterm
     cosign
     unstable.brave
+    inputs.waterfox.packages.${pkgs.stdenv.hostPlatform.system}.waterfox-bin
     unstable.kubectl
     unstable.kubectx
     unstable.kubent
@@ -320,10 +282,7 @@
     unstable.fluxcd
     unstable.kubernetes-helm
     unstable.kind
-    unstable.cilium-cli
     local.navecd
-    unstable.trivy
-    unstable.kube-bench
     (google-cloud-sdk.withExtraComponents [
       google-cloud-sdk.components.gke-gcloud-auth-plugin
     ])
@@ -335,8 +294,7 @@
     unstable.golangci-lint
     unstable.delve
     unstable.goreleaser
-    zig
-    zls
+    unstable.zvm
     unstable.cue
     local.dagger
     unstable.gnumake
@@ -361,9 +319,7 @@
     vlc
     spotify
     discord
-    vesktop
     p7zip
-    unstable.yazi
     udiskie
     dua
     unzip
@@ -377,7 +333,7 @@
     appimage-run
     tcpdump
     pciutils
-    wineWowPackages.staging
+    wineWow64Packages.staging
     winetricks
     protontricks
     mangohud
@@ -397,7 +353,6 @@
     xwayland-satellite
     wl-clipboard
     gamescope
-    kdePackages.dolphin
     openrazer-daemon
     polychromatic
     unstable.opencode

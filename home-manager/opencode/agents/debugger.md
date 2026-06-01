@@ -1,7 +1,7 @@
 ---
 description: Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encountering any issues.
 mode: subagent
-model: github-copilot/claude-sonnet-4.6
+model: github-copilot/gemini-3.1-pro-preview
 temperature: 0.3
 tools:
   write: true
