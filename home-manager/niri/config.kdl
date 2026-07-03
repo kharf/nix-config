@@ -339,7 +339,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+B hotkey-overlay-title="Run a Browser: brave" { spawn "brave"; }
+    Mod+B hotkey-overlay-title="Run a Browser: waterfox" { spawn "waterfox"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
