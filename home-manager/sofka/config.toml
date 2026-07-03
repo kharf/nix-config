@@ -1,0 +1,35 @@
+default_namespace = "monitoring"
+default_resource  = "deployments"
+readonly          = false
+favorite_namespaces = ["monitoring"]
+
+[aliases]
+dep = "deployments"
+
+[skin.colors]
+rosewater = "#ee5396"
+flamingo = "#ff7eb6"
+pink = "#ee5396"
+mauve = "#be95ff"
+red = "#ff7eb6"
+maroon = "#ee5396"
+peach = "#78a9ff"
+yellow = "#78a9ff"
+green = "#42be65"
+teal = "#08bdba"
+sky = "#33b1ff"
+sapphire = "#33b1ff"
+blue = "#dde1e6"
+lavender = "#08bdba"
+text = "#dde1e6"
+subtext1 = "#dde1e6"
+subtext0 = "#525252"
+overlay1 = "#525252"
+overlay0 = "#44475a"
+surface2 = "#525252"
+surface1 = "#262626"
+surface0 = "#161616"
+base = "#161616"
+mantle = "#161616"
+crust = "#161616"
+

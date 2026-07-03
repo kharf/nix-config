@@ -6,7 +6,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    waterfox.url = "github:Hythera/nix-waterfox";
+    sofka.url = "github:nklmilojevic/sofka";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
