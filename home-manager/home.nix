@@ -32,6 +32,7 @@
       ".config/helix/themes/oxocarbon.toml".source = ./helix/themes/oxocarbon.toml;
       ".config/k9s/skins/oxocarbon.yaml".source = ./k9s/skins/oxocarbon.yaml;
       ".config/k9s/config.yaml".source = ./k9s/config.yaml;
+      ".config/sofka/config.toml".source = ./sofka/config.toml;
       ".config/jj/config.toml".source = ./jj/config.toml;
       ".config/opencode/opencode.json".source = ./opencode/opencode.json;
       ".config/opencode/agents".source = ./opencode/agents;

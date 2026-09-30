@@ -33,7 +33,7 @@
   };
 
   # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
 
   # Bootloader.
   boot.loader = {
@@ -61,7 +61,6 @@
   networking.firewall.enable = true;
   networking.firewall.trustedInterfaces = ["virbr0"];
   networking.hostName = "kharf";
-  networking.firewall.interfaces."podman+".allowedUDPPorts = [ 53 ];
   # in k8s pod to pod communication is expected to go through iptables
   boot.kernel.sysctl = {
     "net.bridge.bridge-nf-call-iptables" = 1;
@@ -100,12 +99,8 @@
   services.lact.enable = true;
   hardware.amdgpu.overdrive.enable = true;
 
-  # rootless podman
-  # disable cgroup v1
   # disable PP_OVERDRIVE_MASK, PP_GFXOFF_MASK, and PP_STUTTER_MODE to avoid complete system freezes
   boot.kernelParams = [
-    "cgroup_no_v1=all"
-    "systemd.unified_cgroup_hierarchy=1"
     "amdgpu.ppfeaturemask=0xfffd3fff"
   ];
   # bpf programs need higher memlock
@@ -123,6 +118,8 @@
       value = "1048576";
     }
   ];
+
+  systemd.services."user@".serviceConfig.Delegate = "cpu cpuset io memory pids";
 
   # Swap
   zramSwap = {
@@ -159,10 +156,12 @@
     ];
   };
 
-  # DM
+  services.displayManager.gdm.enable = false;
   services.displayManager = {
     defaultSession = "niri";
-    gdm.enable = true;
+    sddm = {
+      enable = true;
+    };
   };
 
   services.xserver = {
@@ -191,7 +190,7 @@
           "wheel"
           "audio"
           "libvirtd"
-          "podman"
+          "docker"
           "openrazer"
         ];
       };
@@ -207,27 +206,14 @@
 
   # Container
   virtualisation = {
-    podman = {
+    docker = {
       enable = true;
-      dockerCompat = true;
     };
     libvirtd = {
       enable = true;
     };
     spiceUSBRedirection.enable = true;
   };
-
-  security.sudo.extraRules = [
-    {
-      users = [ "kharf" ];
-      commands = [
-        {
-          command = "/run/current-system/sw/bin/podman";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
 
   # Credentials
   services.gnome.gnome-keyring.enable = true;
@@ -260,6 +246,13 @@
 
   hardware.openrazer.enable = true;
 
+  # streaming
+  services.jellyfin = {
+    enable = true;
+    user = "kharf";
+    openFirewall = true;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -274,7 +267,6 @@
     unstable.presenterm
     cosign
     unstable.brave
-    inputs.waterfox.packages.${pkgs.stdenv.hostPlatform.system}.waterfox-bin
     unstable.kubectl
     unstable.kubectx
     unstable.kubent
@@ -318,6 +310,7 @@
     alsa-utils
     vlc
     spotify
+    vesktop
     discord
     p7zip
     udiskie
@@ -340,6 +333,7 @@
     lutris
     unstable.umu-launcher
     local.bellum
+    local.battlenet
     local.bar
     unstable.vial
     usbutils
@@ -347,22 +341,24 @@
     difftastic
     dyff
     fuzzel
-    mako
     swaybg
     swaylock
-    xwayland-satellite
     wl-clipboard
     gamescope
-    openrazer-daemon
+    unstable.openrazer-daemon
     polychromatic
     unstable.opencode
     unstable.glow
     unstable.gotestsum
-    unstable.bun
     unstable.kdePackages.okular
     unstable.kyverno
     unstable.nautilus
+    unstable.kubebuilder
+    inputs.sofka.packages.${pkgs.stdenv.hostPlatform.system}.sofka
+    local.curseforge
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   programs = {
     zsh = {
@@ -385,9 +381,8 @@
     gpu-screen-recorder = {
       enable = true;
     };
-    niri = with pkgs; {
+    niri = {
       enable = true;
-      package = unstable.niri;
     };
     waybar.enable = true;
     obs-studio = {
